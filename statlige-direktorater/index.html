@@ -362,6 +362,22 @@
     border-bottom: 2px solid var(--border);
     cursor: pointer;
     user-select: none;
+    white-space: nowrap;
+    transition: background 0.15s;
+  }
+
+  th:hover {
+    background: #eef1f5;
+  }
+
+  th .sort-arrow {
+    font-size: 0.7rem;
+    color: #aaa;
+    margin-left: 4px;
+  }
+
+  th:hover .sort-arrow {
+    color: var(--accent);
   }
 
   th:hover {
@@ -1754,6 +1770,8 @@ let currentView = 'cards';
 let searchTerm = '';
 let ministryFilterValue = '';
 let activeTagFilter = '';
+let sortColumn = '';
+let sortAsc = true;
 
 function init() {
   populateMinistryFilter();
@@ -1880,6 +1898,38 @@ function renderCards(items) {
   container.innerHTML = html;
 }
 
+const tableColumns = [
+  { key: 'name', label: 'Direktorat/etat' },
+  { key: 'ministry', label: 'Departement' },
+  { key: 'leader', label: 'Leder' },
+  { key: 'location', label: 'Sted' },
+  { key: 'employees', label: 'Ansatte' },
+  { key: 'description', label: 'Beskrivelse' }
+];
+
+function parseNum(s) {
+  const n = parseInt(String(s).replace(/[^0-9]/g, ''), 10);
+  return isNaN(n) ? 0 : n;
+}
+
+function sortItems(items) {
+  if (!sortColumn) return items;
+  const sorted = [...items];
+  sorted.sort((a, b) => {
+    let va = a[sortColumn] || '';
+    let vb = b[sortColumn] || '';
+    if (sortColumn === 'employees') {
+      return sortAsc ? parseNum(va) - parseNum(vb) : parseNum(vb) - parseNum(va);
+    }
+    va = String(va).toLowerCase();
+    vb = String(vb).toLowerCase();
+    if (va < vb) return sortAsc ? -1 : 1;
+    if (va > vb) return sortAsc ? 1 : -1;
+    return 0;
+  });
+  return sorted;
+}
+
 function renderTable(items) {
   const container = document.getElementById('tableContainer');
   if (items.length === 0) {
@@ -1889,17 +1939,16 @@ function renderTable(items) {
   }
   document.getElementById('noResults').style.display = 'none';
 
-  let html = `<table>
-    <thead><tr>
-      <th>Direktorat/etat</th>
-      <th>Departement</th>
-      <th>Leder</th>
-      <th>Sted</th>
-      <th>Ansatte</th>
-      <th>Beskrivelse</th>
-    </tr></thead><tbody>`;
+  const sorted = sortItems(items);
 
-  items.forEach(d => {
+  const ths = tableColumns.map(col => {
+    const arrow = sortColumn === col.key ? (sortAsc ? ' \u25B2' : ' \u25BC') : ' \u25BD';
+    return `<th data-sort="${col.key}">${col.label}<span class="sort-arrow">${arrow}</span></th>`;
+  }).join('');
+
+  let html = `<table><thead><tr>${ths}</tr></thead><tbody>`;
+
+  sorted.forEach(d => {
     const hotBadge = d.hot ? ' <span class="tag hot">KI-relevant</span>' : '';
     html += `<tr>
       <td class="name-cell">${hl(d.name)}${d.abbrev ? ` <span style="color:#888">(${hl(d.abbrev)})</span>` : ''}${hotBadge}</td>
@@ -1913,6 +1962,19 @@ function renderTable(items) {
 
   html += '</tbody></table>';
   container.innerHTML = html;
+
+  container.querySelectorAll('th[data-sort]').forEach(th => {
+    th.addEventListener('click', () => {
+      const col = th.dataset.sort;
+      if (sortColumn === col) {
+        sortAsc = !sortAsc;
+      } else {
+        sortColumn = col;
+        sortAsc = true;
+      }
+      render();
+    });
+  });
 }
 
 function render() {
