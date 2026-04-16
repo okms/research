@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Statlige direktorater – Oversikt</title>
+<script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+<style>
+  :root {
+    --bg: #f5f7fa;
+    --card-bg: #ffffff;
+    --text: #1a1a2e;
+    --text-muted: #555;
+    --accent: #0078d4;
+    --accent-light: #e8f4fd;
+    --border: #e0e4ea;
+    --shadow: 0 2px 8px rgba(0,0,0,0.07);
+    --shadow-hover: 0 4px 16px rgba(0,0,0,0.12);
+    --radius: 12px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 17px;
+  }
+
+  header {
+    background: linear-gradient(135deg, #0078d4 0%, #005a9e 50%, #003f6f 100%);
+    color: white;
+    padding: 40px 32px 32px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+
+  header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+  }
+
+  header p.subtitle {
+    font-size: 1.05rem;
+    opacity: 0.9;
+    margin-bottom: 20px;
+  }
+
+  .header-stats {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .stat-box {
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    padding: 10px 24px;
+    backdrop-filter: blur(4px);
+  }
+
+  .stat-box .num {
+    font-size: 1.8rem;
+    font-weight: 700;
+    display: block;
+  }
+
+  .stat-box .label {
+    font-size: 0.85rem;
+    opacity: 0.85;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .controls {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .search-box {
+    flex: 1;
+    min-width: 260px;
+    max-width: 420px;
+    position: relative;
+  }
+
+  .search-box input {
+    width: 100%;
+    padding: 12px 16px 12px 44px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    background: rgba(255,255,255,0.95);
+    color: var(--text);
+  }
+
+  .search-box::before {
+    content: '\1F50D';
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1rem;
+    z-index: 1;
+  }
+
+  .filter-select {
+    padding: 12px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: rgba(255,255,255,0.95);
+    color: var(--text);
+    cursor: pointer;
+    min-width: 220px;
+  }
+
+  .view-toggle {
+    display: flex;
+    gap: 0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .view-toggle button {
+    padding: 12px 18px;
+    border: none;
+    background: rgba(255,255,255,0.3);
+    color: white;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+  }
+
+  .view-toggle button.active {
+    background: rgba(255,255,255,0.95);
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 28px 24px 60px;
+  }
+
+  .ministry-section {
+    margin-bottom: 36px;
+  }
+
+  .ministry-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--accent);
+  }
+
+  .ministry-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .ministry-header h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .ministry-header .count {
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-left: auto;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 16px;
+  }
+
+  .card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    transition: box-shadow 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px;
+    height: 100%;
+  }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    gap: 12px;
+  }
+
+  .card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+  }
+
+  .card .abbrev {
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .card .description {
+    color: var(--text-muted);
+    font-size: 0.98rem;
+    margin-bottom: 14px;
+    line-height: 1.55;
+  }
+
+  .card-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.92rem;
+  }
+
+  .card-meta .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .card-meta .meta-icon {
+    font-size: 1rem;
+    width: 22px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .card-meta .meta-label {
+    color: var(--text-muted);
+    min-width: 70px;
+  }
+
+  .card-meta .meta-value {
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .ki-reason {
+    margin-top: 14px;
+    padding: 12px 14px;
+    background: #fff8e1;
+    border-radius: 8px;
+    border-left: 3px solid #ff8f00;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  .ki-reason-title {
+    font-weight: 700;
+    color: #e65100;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+
+  .ki-reason-text {
+    color: #444;
+  }
+
+  .ki-reason-source {
+    margin-top: 6px;
+    font-size: 0.78rem;
+    color: #999;
+    font-style: italic;
+  }
+
+  .tag {
+    display: inline-block;
+    background: #f0f0f0;
+    color: #555;
+    font-size: 0.78rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 4px;
+    margin-top: 4px;
+  }
+
+  .tag.hot {
+    background: #fff3e0;
+    color: #e65100;
+  }
+
+  .tag.existing {
+    background: #e8f5e9;
+    color: #2e7d32;
+  }
+
+  /* Table view */
+  .table-view { display: none; }
+  .table-view.active { display: block; }
+  .cards-view.active .ministry-section { display: block; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    font-size: 0.95rem;
+  }
+
+  th {
+    background: #f8f9fb;
+    text-align: left;
+    padding: 14px 16px;
+    font-weight: 700;
+    color: var(--text);
+    border-bottom: 2px solid var(--border);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  th:hover {
+    background: #eef1f5;
+  }
+
+  td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  tr:hover td {
+    background: #f8fafc;
+  }
+
+  td.name-cell {
+    font-weight: 600;
+    min-width: 200px;
+  }
+
+  td.ministry-cell {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    min-width: 180px;
+  }
+
+  td.leader-cell {
+    white-space: nowrap;
+  }
+
+  td.desc-cell {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    max-width: 400px;
+  }
+
+  .no-results {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+  }
+
+  .disclaimer {
+    text-align: center;
+    padding: 20px;
+    color: #999;
+    font-size: 0.82rem;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+
+  .highlight {
+    background: #fff59d;
+    border-radius: 2px;
+    padding: 0 2px;
+  }
+
+  /* Color coding by ministry */
+  .color-aid { --mc: #0078d4; }
+  .color-bfd { --mc: #8e24aa; }
+  .color-dfd { --mc: #00897b; }
+  .color-fd { --mc: #546e7a; }
+  .color-fin { --mc: #43a047; }
+  .color-hod { --mc: #e53935; }
+  .color-jd { --mc: #1565c0; }
+  .color-kmd { --mc: #ff8f00; }
+  .color-kld { --mc: #2e7d32; }
+  .color-kud { --mc: #ad1457; }
+  .color-kd { --mc: #6a1b9a; }
+  .color-lmd { --mc: #558b2f; }
+  .color-nfd { --mc: #0277bd; }
+  .color-oed { --mc: #ef6c00; }
+  .color-sd { --mc: #4527a0; }
+  .color-ud { --mc: #00695c; }
+
+  .ministry-icon { background: var(--mc, var(--accent)); color: white; }
+  .ministry-header { border-bottom-color: var(--mc, var(--accent)); }
+  .card::before { background: var(--mc, var(--accent)); }
+
+  @media (max-width: 860px) {
+    .cards-grid { grid-template-columns: 1fr; }
+    header { padding: 24px 16px 20px; }
+    header h1 { font-size: 1.5rem; }
+    main { padding: 16px 12px 40px; }
+    .card { padding: 18px; }
+  }
+
+  .tag-filters {
+    display: flex;
+    gap: 6px;
+  }
+
+  .tag-filter {
+    padding: 10px 16px;
+    border: 2px solid rgba(255,255,255,0.4);
+    border-radius: 8px;
+    background: transparent;
+    color: rgba(255,255,255,0.9);
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .tag-filter:hover {
+    background: rgba(255,255,255,0.15);
+    border-color: rgba(255,255,255,0.6);
+  }
+
+  .tag-filter.active {
+    background: rgba(255,255,255,0.95);
+    color: #e65100;
+    border-color: transparent;
+    font-weight: 700;
+  }
+
+  .tag-filter[data-tag="Digitalisering"].active {
+    color: #0078d4;
+  }
+
+  .export-btn {
+    padding: 10px 12px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.3);
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s;
+    line-height: 1;
+  }
+
+  .export-btn:hover {
+    background: rgba(255,255,255,0.95);
+    color: #217346;
+  }
+
+  @media print {
+    header { position: static; }
+    .controls, .view-toggle { display: none !important; }
+    .card { break-inside: avoid; box-shadow: none; border: 1px solid #ddd; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Statlige direktorater i Norge</h1>
+  <p class="subtitle">Oversikt over direktorater, etater og tilsyn – sortert etter departement</p>
+  <div class="header-stats">
+    <div class="stat-box">
+      <span class="num" id="totalCount">0</span>
+      <span class="label">Direktorater/etater</span>
+    </div>
+    <div class="stat-box">
+      <span class="num" id="ministryCount">0</span>
+      <span class="label">Departementer</span>
+    </div>
+    <div class="stat-box">
+      <span class="num" id="visibleCount">0</span>
+      <span class="label">Vises nå</span>
+    </div>
+  </div>
+  <div class="controls">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Søk etter direktorat, leder, stikkord...">
+    </div>
+    <select class="filter-select" id="ministryFilter">
+      <option value="">Alle departementer</option>
+    </select>
+    <div class="tag-filters">
+      <button class="tag-filter" data-tag="KI-relevant">KI-relevant</button>
+      <button class="tag-filter" data-tag="Digitalisering">Digitalisering</button>
+    </div>
+    <div class="view-toggle">
+      <button class="active" data-view="cards">Kort</button>
+      <button data-view="table">Tabell</button>
+    </div>
+    <button class="export-btn" id="exportBtn" title="Eksporter til Excel (.xlsx)" style="display:none;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+  <div id="cardsContainer" class="cards-view active"></div>
+  <div id="tableContainer" class="table-view"></div>
+  <div id="noResults" class="no-results" style="display:none;">Ingen treff på søket ditt.</div>
+  <div class="disclaimer">
+    Oppdatert april 2026. Informasjon er basert på offentlig tilgjengelige kilder. Ledere og organisering kan ha endret seg – verifiser mot regjeringen.no for oppdatert informasjon.
+  </div>
+</main>
+
+<script>
+const data = [
+  // ===== Arbeids- og inkluderingsdepartementet =====
+  {
+    name: "Arbeids- og velferdsdirektoratet",
+    abbrev: "NAV",
+    ministry: "Arbeids- og inkluderingsdepartementet",
+    ministryKey: "aid",
+    icon: "👥",
+    leader: "Hans Christian Holte",
+    title: "Arbeids- og velferdsdirektør",
+    description: "Forvalter velferdsordninger som arbeidsledighetstrygd, sykepenger, pensjon, barnetrygd og sosialhjelp. Ansvar for å få flere i arbeid og aktivitet.",
+    employees: "~20 000",
+    location: "Oslo",
+    tags: ["Velferd", "Arbeid", "Digitalisering", "KI-relevant"],
+    hot: true,
+    url: "nav.no",
+    kiReason: "Norges største offentlige KI-bruker. ML for prediksjon av frafall fra arbeidsrettede tiltak, automatisert dokumentklassifisering og chatboten «Frida». Automatisert behandling av sykepenger og foreldrepenger. Utforsker Microsoft Copilot og interne LLM-er for saksbehandlerstøtte. Åpen om ansvarlig KI – publiserer algoritmedokumentasjon på GitHub (navikt.github.io).",
+    kiSource: "nav.no, navikt.github.io"
+  },
+  {
+    name: "Arbeidstilsynet",
+    abbrev: "",
+    ministry: "Arbeids- og inkluderingsdepartementet",
+    ministryKey: "aid",
+    icon: "👥",
+    leader: "Trude Vollheim",
+    title: "Direktør",
+    description: "Fører tilsyn med at virksomheter følger arbeidsmiljøloven. Jobber for et sikkert og helsefremmende arbeidsliv.",
+    employees: "~700",
+    location: "Trondheim",
+    tags: ["Tilsyn", "HMS"],
+    url: "arbeidstilsynet.no"
+  },
+  {
+    name: "Integrerings- og mangfoldsdirektoratet",
+    abbrev: "IMDi",
+    ministry: "Arbeids- og inkluderingsdepartementet",
+    ministryKey: "aid",
+    icon: "👥",
+    leader: "Libe Rieber-Mohn",
+    title: "Direktør",
+    description: "Fagdirektorat for integrering og mangfold. Bosetter flyktninger i kommuner og jobber for god integrering.",
+    employees: "~300",
+    location: "Oslo",
+    tags: ["Integrering", "Mangfold"],
+    url: "imdi.no"
+  },
+  {
+    name: "Petroleumstilsynet",
+    abbrev: "Ptil",
+    ministry: "Arbeids- og inkluderingsdepartementet",
+    ministryKey: "aid",
+    icon: "👥",
+    leader: "Anne Myhrvold",
+    title: "Direktør",
+    description: "Ansvar for sikkerhet, arbeidsmiljø og beredskap i petroleumsvirksomheten og på enkelte landanlegg.",
+    employees: "~180",
+    location: "Stavanger",
+    tags: ["Tilsyn", "Petroleum", "Sikkerhet"],
+    url: "ptil.no"
+  },
+
+  // ===== Barne- og familiedepartementet =====
+  {
+    name: "Barne-, ungdoms- og familiedirektoratet",
+    abbrev: "Bufdir",
+    ministry: "Barne- og familiedepartementet",
+    ministryKey: "bfd",
+    icon: "👨‍👩‍👧",
+    leader: "Kjetil Andreas Ostling",
+    title: "Direktør",
+    description: "Fagdirektorat for barnevern, familievern, likestilling og ikke-diskriminering. Styrer Bufetat.",
+    employees: "~350 (dir.) / ~6 000 (Bufetat)",
+    location: "Oslo",
+    tags: ["Barnevern", "Likestilling"],
+    url: "bufdir.no"
+  },
+  {
+    name: "Forbrukertilsynet",
+    abbrev: "",
+    ministry: "Barne- og familiedepartementet",
+    ministryKey: "bfd",
+    icon: "👨‍👩‍👧",
+    leader: "Trond Rønningen",
+    title: "Direktør",
+    description: "Fører tilsyn med markedsføring og avtalevilkår. Håndhever forbrukerlovgivningen og sikrer forbrukernes rettigheter.",
+    employees: "~60",
+    location: "Skien",
+    tags: ["Tilsyn", "Forbruker"],
+    url: "forbrukertilsynet.no"
+  },
+
+  // ===== Digitaliserings- og forvaltningsdepartementet =====
+  {
+    name: "Digitaliseringsdirektoratet",
+    abbrev: "Digdir",
+    ministry: "Digitaliserings- og forvaltningsdepartementet",
+    ministryKey: "dfd",
+    icon: "💻",
+    leader: "Frode Danielsen",
+    title: "Direktør",
+    description: "Ansvar for å samordne og fremme digitalisering i offentlig sektor. Forvalter fellesløsninger som Altinn, ID-porten og Felles datakatalog.",
+    employees: "~400",
+    location: "Oslo / Leikanger / Brønnøysund",
+    tags: ["Digitalisering", "Fellesløsninger", "KI-relevant"],
+    hot: true,
+    url: "digdir.no",
+    kiReason: "Etablerer «KI Norge» (åpner aug. 2026, 30 MNOK bevilget) – nasjonal hub for KI i offentlig sektor. Koordinerer regjeringens mål om 80 % KI-adopsjon innen 2025 og 100 % innen 2030. Publiserer «Veiledning for KI i offentlig sektor». IT i praksis 2025 viser at 5 av 10 offentlige virksomheter bruker KI. Riksrevisjonen (Dok 3:18, 2023–2024) anslo besparelse på 155 000 årsverk ved full KI-utnyttelse.",
+    kiSource: "digdir.no/kunstig-intelligens, riksrevisjonen.no"
+  },
+  {
+    name: "Direktoratet for forvaltning og økonomistyring",
+    abbrev: "DFØ",
+    ministry: "Digitaliserings- og forvaltningsdepartementet",
+    ministryKey: "dfd",
+    icon: "💻",
+    leader: "Hilde Singsaas",
+    title: "Direktør",
+    description: "Leverer lønns- og regnskapstjenester til statlige virksomheter. Utvikler styring, ledelse og organisering i staten.",
+    employees: "~800",
+    location: "Oslo / Stavanger",
+    tags: ["Økonomi", "Forvaltning", "Digitalisering"],
+    url: "dfo.no"
+  },
+  {
+    name: "Nasjonal sikkerhetsmyndighet",
+    abbrev: "NSM",
+    ministry: "Digitaliserings- og forvaltningsdepartementet",
+    ministryKey: "dfd",
+    icon: "💻",
+    leader: "Sofie Nystrøm",
+    title: "Direktør",
+    description: "Norges ekspertorgan for informasjons- og objektsikkerhet. Gir råd om forebyggende sikkerhetstiltak mot spionasje, sabotasje og terror.",
+    employees: "~350",
+    location: "Oslo",
+    tags: ["Sikkerhet", "Cybersikkerhet", "KI-relevant"],
+    hot: true,
+    url: "nsm.no",
+    kiReason: "Risiko 2025-rapporten identifiserer KI som ny angrepsflate – varsler KI-drevne cyberangrep i 2026. Advarer mot deepfakes og KI-generert desinformasjon mot demokratiske prosesser. Leder NCC-NO (nasjonalt koordineringssenter for cybersikkerhetsforskning) med EU-midler til KI-baserte sikkerhetsløsninger. KI var hovedtema på Sikkerhetskonferansen 2025.",
+    kiSource: "nsm.no/rapporter/risiko-2025"
+  },
+  {
+    name: "Datatilsynet",
+    abbrev: "",
+    ministry: "Digitaliserings- og forvaltningsdepartementet",
+    ministryKey: "dfd",
+    icon: "💻",
+    leader: "Line Coll",
+    title: "Direktør",
+    description: "Uavhengig forvaltningsorgan som fører tilsyn med personvernlovgivningen (GDPR). Viktig rolle for KI-regulering.",
+    employees: "~70",
+    location: "Oslo",
+    tags: ["Personvern", "GDPR", "KI-relevant"],
+    hot: true,
+    url: "datatilsynet.no",
+    kiReason: "Driver verdens første regulatoriske sandkasse for KI (permanent fra 2023, 20+ gjennomførte prosjekter). Sentral i implementering av EU AI Act i Norge (ny lov på høring juni 2025, ikrafttredelse sen sommer 2026). Partner i KI Norge sammen med Digdir og Nkom. Sandkasseprosjekter inkl. NAV, Microsoft 365 Copilot personvernvurdering (NTNU), og KI-basert svindeldeteksjon (DNB/Nordea).",
+    kiSource: "datatilsynet.no/sandkasse-for-kunstig-intelligens"
+  },
+
+  // ===== Forsvarsdepartementet =====
+  {
+    name: "Forsvarsmateriell",
+    abbrev: "FMA",
+    ministry: "Forsvarsdepartementet",
+    ministryKey: "fd",
+    icon: "🛡️",
+    leader: "Mette Sørfonden",
+    title: "Direktør",
+    description: "Anskaffer, forvalter og avhender materiell for forsvarssektoren. Sikrer at Forsvaret har riktig utstyr.",
+    employees: "~1 500",
+    location: "Oslo / Kolsås",
+    tags: ["Forsvar", "Materiel"],
+    url: "forsvarsmateriell.no"
+  },
+  {
+    name: "Forsvarsbygg",
+    abbrev: "",
+    ministry: "Forsvarsdepartementet",
+    ministryKey: "fd",
+    icon: "🛡️",
+    leader: "Thorbjørn Thoresen",
+    title: "Direktør",
+    description: "Bygger, drifter og avhender eiendom for forsvarssektoren. En av Norges største eiendomsforvaltere.",
+    employees: "~1 700",
+    location: "Oslo",
+    tags: ["Forsvar", "Eiendom"],
+    url: "forsvarsbygg.no"
+  },
+  {
+    name: "Nasjonal kommunikasjonsmyndighet",
+    abbrev: "Nkom",
+    ministry: "Digitaliserings- og forvaltningsdepartementet",
+    ministryKey: "dfd",
+    icon: "💻",
+    leader: "John-Eivind Velure",
+    title: "Direktør",
+    description: "Regulerer og fører tilsyn med elektronisk kommunikasjon (tele, internett, post). Forvalter frekvensressurser.",
+    employees: "~180",
+    location: "Lillesand",
+    tags: ["Telekom", "Digitalisering"],
+    url: "nkom.no"
+  },
+
+  // ===== Finansdepartementet =====
+  {
+    name: "Skatteetaten",
+    abbrev: "",
+    ministry: "Finansdepartementet",
+    ministryKey: "fin",
+    icon: "💰",
+    leader: "Nina Schanke Funnemark",
+    title: "Skattedirektør",
+    description: "Fastsetter og innkrever skatter og avgifter. Driver folkeregisteret og er stor på digitalisering i offentlig sektor.",
+    employees: "~7 000",
+    location: "Oslo",
+    tags: ["Skatt", "Digitalisering", "Folkeregister", "KI-relevant"],
+    hot: true,
+    url: "skatteetaten.no",
+    kiReason: "Fremhevet av Riksrevisjonen som forbilde for andre etater. ML-modell for å avdekke urapporterte utleieinntekter ga over 110 MNOK i økt rapportert inntekt. Bygget sikker generativ KI-plattform for ansatte (dokumentoppsummering, juridiske kilder, koding) – én prosess alene sparer 40 årsverk ved 96 % nøyaktighet. Egen «Policy for utvikling og bruk av KI» med fem grunnprinsipper. KI-assistert kundeservice under utvikling.",
+    kiSource: "skatteetaten.no/kunstig-intelligens, riksrevisjonen.no"
+  },
+  {
+    name: "Tolletaten",
+    abbrev: "",
+    ministry: "Finansdepartementet",
+    ministryKey: "fin",
+    icon: "💰",
+    leader: "Øystein Børmer",
+    title: "Tolldirektør",
+    description: "Kontrollerer vare- og persontrafikk over grensen. Innkrever toll og særavgifter, og motvirker smugling.",
+    employees: "~1 500",
+    location: "Oslo",
+    tags: ["Toll", "Grensekontroll"],
+    url: "toll.no"
+  },
+  {
+    name: "Finanstilsynet",
+    abbrev: "",
+    ministry: "Finansdepartementet",
+    ministryKey: "fin",
+    icon: "💰",
+    leader: "Per Mathis Kongsrud",
+    title: "Finanstilsynsdirektør",
+    description: "Fører tilsyn med banker, forsikringsselskaper, verdipapirmarkedet og finansiell rapportering.",
+    employees: "~310",
+    location: "Oslo",
+    tags: ["Tilsyn", "Finans"],
+    url: "finanstilsynet.no"
+  },
+  {
+    name: "Statistisk sentralbyrå",
+    abbrev: "SSB",
+    ministry: "Finansdepartementet",
+    ministryKey: "fin",
+    icon: "💰",
+    leader: "Geir Axelsen",
+    title: "Administrerende direktør",
+    description: "Norges sentrale statistikkmyndighet. Utarbeider offisiell statistikk, forskning og analyse for samfunnet.",
+    employees: "~850",
+    location: "Oslo / Kongsvinger",
+    tags: ["Statistikk", "Data", "Analyse"],
+    url: "ssb.no"
+  },
+
+  // ===== Helse- og omsorgsdepartementet =====
+  {
+    name: "Helsedirektoratet",
+    abbrev: "Hdir",
+    ministry: "Helse- og omsorgsdepartementet",
+    ministryKey: "hod",
+    icon: "🏥",
+    leader: "Bjørn Guldvog",
+    title: "Helsedirektør",
+    description: "Faglig rådgiver for helse- og omsorgstjenesten. Forvalter helselovgivning, retningslinjer og nasjonale e-helseløsninger.",
+    employees: "~900",
+    location: "Oslo",
+    tags: ["Helse", "E-helse", "Digitalisering", "KI-relevant"],
+    hot: true,
+    url: "helsedirektoratet.no",
+    kiReason: "Bidragsyter til Nasjonal e-helsestrategi med KI for diagnostikk, pasientflyt og beslutningsstøtte. Piloter med ML for medisinsk bildeanalyse (radiologi, patologi) og KI-assistert triagering. Helseanalyseplattformen skal muliggjøre KI-analyse av helseregisterdata. Publisert veiledning for ansvarlig bruk av KI i helsetjenesten. EU AI Act klassifiserer helse-KI som høyrisiko.",
+    kiSource: "helsedirektoratet.no, ehelse.no"
+  },
+  {
+    name: "Folkehelseinstituttet",
+    abbrev: "FHI",
+    ministry: "Helse- og omsorgsdepartementet",
+    ministryKey: "hod",
+    icon: "🏥",
+    leader: "Guri Rørtveit",
+    title: "Direktør",
+    description: "Nasjonalt folkehelseinstitutt. Produserer kunnskap om folkehelse, smittevern og miljømedisin.",
+    employees: "~1 100",
+    location: "Oslo",
+    tags: ["Folkehelse", "Forskning", "Data"],
+    url: "fhi.no"
+  },
+  {
+    name: "Direktoratet for medisinske produkter",
+    abbrev: "DMP",
+    ministry: "Helse- og omsorgsdepartementet",
+    ministryKey: "hod",
+    icon: "🏥",
+    leader: "Audun Hågå",
+    title: "Direktør",
+    description: "Godkjenner og overvåker legemidler, medisinsk utstyr og kosmetikk. Tidligere Statens legemiddelverk.",
+    employees: "~400",
+    location: "Oslo",
+    tags: ["Legemidler", "Tilsyn"],
+    url: "dmp.no"
+  },
+  {
+    name: "Helsetilsynet",
+    abbrev: "",
+    ministry: "Helse- og omsorgsdepartementet",
+    ministryKey: "hod",
+    icon: "🏥",
+    leader: "Jan Fredrik Andresen",
+    title: "Direktør",
+    description: "Overordnet faglig tilsyn med helse- og omsorgstjenestene, barnevern og sosiale tjenester i NAV.",
+    employees: "~120",
+    location: "Oslo",
+    tags: ["Tilsyn", "Helse"],
+    url: "helsetilsynet.no"
+  },
+  {
+    name: "Mattilsynet",
+    abbrev: "",
+    ministry: "Helse- og omsorgsdepartementet",
+    ministryKey: "hod",
+    icon: "🏥",
+    leader: "Ingunn Midttun Godal",
+    title: "Administrerende direktør",
+    description: "Fører tilsyn med trygg mat, trygt drikkevann, friske dyr og planter, og dyrevelferd.",
+    employees: "~1 300",
+    location: "Oslo / Brumunddal",
+    tags: ["Matsikkerhet", "Tilsyn"],
+    url: "mattilsynet.no"
+  },
+
+  // ===== Justis- og beredskapsdepartementet =====
+  {
+    name: "Direktoratet for samfunnssikkerhet og beredskap",
+    abbrev: "DSB",
+    ministry: "Justis- og beredskapsdepartementet",
+    ministryKey: "jd",
+    icon: "⚖️",
+    leader: "Elisabeth Aarsæther",
+    title: "Direktør",
+    description: "Ansvar for brann- og el-sikkerhet, farlige stoffer og kritisk infrastruktur. Koordinerer nasjonal beredskap.",
+    employees: "~700",
+    location: "Tønsberg",
+    tags: ["Beredskap", "Sikkerhet", "Brann"],
+    url: "dsb.no"
+  },
+  {
+    name: "Politidirektoratet",
+    abbrev: "POD",
+    ministry: "Justis- og beredskapsdepartementet",
+    ministryKey: "jd",
+    icon: "⚖️",
+    leader: "Benedicte Bjørnland",
+    title: "Politidirektør",
+    description: "Leder og samordner norsk politi. Ansvar for strategi, styring og utvikling av politietaten.",
+    employees: "~17 500 (hele politiet)",
+    location: "Oslo",
+    tags: ["Politi", "Sikkerhet", "Digitalisering", "KI-relevant"],
+    hot: true,
+    url: "politiet.no",
+    kiReason: "Kripos bruker KI-verktøy for digital etterforskning, ansiktsgjenkjenning og analyse av overgrepsmateriell (CSAM). Utforsker KI for analyse av store datasett, bilde-/videoanalyse og OSINT. EU AI Act setter spesifikke krav til politiets KI-bruk. Datatilsynets sandkasseprosjekt PrevBOT (KI-chatbot mot overgrep mot barn) utviklet ved Politihøgskolen.",
+    kiSource: "politiet.no, datatilsynet.no"
+  },
+  {
+    name: "Utlendingsdirektoratet",
+    abbrev: "UDI",
+    ministry: "Justis- og beredskapsdepartementet",
+    ministryKey: "jd",
+    icon: "⚖️",
+    leader: "Mari Trommald",
+    title: "Direktør",
+    description: "Behandler søknader om asyl, visum og oppholdstillatelse. Drifter asylmottak.",
+    employees: "~1 200",
+    location: "Oslo",
+    tags: ["Utlending", "Asyl", "Digitalisering"],
+    existing: true,
+    url: "udi.no"
+  },
+  {
+    name: "Kriminalomsorgsdirektoratet",
+    abbrev: "KDI",
+    ministry: "Justis- og beredskapsdepartementet",
+    ministryKey: "jd",
+    icon: "⚖️",
+    leader: "Lise Sannerud",
+    title: "Direktør",
+    description: "Ansvar for straffegjennomføring i Norge – fengsler og friomsorgskontor.",
+    employees: "~5 000 (hele kriminalomsorgen)",
+    location: "Lillestrøm",
+    tags: ["Justis", "Kriminalomsorg"],
+    url: "kfrsfud.no"
+  },
+  {
+    name: "Utlendingsnemnda",
+    abbrev: "UNE",
+    ministry: "Justis- og beredskapsdepartementet",
+    ministryKey: "jd",
+    icon: "⚖️",
+    leader: "Marianne Jakobsen",
+    title: "Direktør",
+    description: "Klageinstans for utlendingssaker og statsborgersaker. Behandler klager på UDI-vedtak.",
+    employees: "~350",
+    location: "Oslo",
+    tags: ["Utlending", "Klageorgan"],
+    url: "une.no"
+  },
+
+  // ===== Klima- og miljødepartementet =====
+  {
+    name: "Miljødirektoratet",
+    abbrev: "",
+    ministry: "Klima- og miljødepartementet",
+    ministryKey: "kld",
+    icon: "🌿",
+    leader: "Ellen Hambro",
+    title: "Direktør",
+    description: "Faglig rådgiver for klima- og miljøpolitikken. Forvalter naturmangfold, forurensning og klima.",
+    employees: "~750",
+    location: "Trondheim / Oslo",
+    tags: ["Miljø", "Klima", "Naturvern"],
+    url: "miljodirektoratet.no"
+  },
+  {
+    name: "Norsk Polarinstitutt",
+    abbrev: "NPI",
+    ministry: "Klima- og miljødepartementet",
+    ministryKey: "kld",
+    icon: "🌿",
+    leader: "Camilla Brekke",
+    title: "Direktør",
+    description: "Norges sentralinstitutt for forskning, kartlegging og miljøovervåking i Arktis og Antarktis.",
+    employees: "~170",
+    location: "Tromsø",
+    tags: ["Forskning", "Polar", "Klima"],
+    url: "npolar.no"
+  },
+
+  // ===== Kommunal- og distriktsdepartementet =====
+  {
+    name: "Husbanken",
+    abbrev: "",
+    ministry: "Kommunal- og distriktsdepartementet",
+    ministryKey: "kmd",
+    icon: "🏘️",
+    leader: "Osmund Kaldheim",
+    title: "Administrerende direktør",
+    description: "Statens sentrale organ for gjennomføring av boligpolitikken. Gir lån, tilskudd og bostøtte.",
+    employees: "~350",
+    location: "Drammen / Hammerfest / Bodø",
+    tags: ["Bolig", "Lån"],
+    url: "husbanken.no"
+  },
+  {
+    name: "Direktoratet for byggkvalitet",
+    abbrev: "DiBK",
+    ministry: "Kommunal- og distriktsdepartementet",
+    ministryKey: "kmd",
+    icon: "🏘️",
+    leader: "Per-Arne Horne",
+    title: "Direktør",
+    description: "Sentral myndighet for bygningsregelverket. Sikrer gode bygg og et velfungerende bolig- og byggemarked.",
+    employees: "~80",
+    location: "Gjøvik",
+    tags: ["Bygg", "Regelverk"],
+    url: "dibk.no"
+  },
+  {
+    name: "Kartverket",
+    abbrev: "",
+    ministry: "Kommunal- og distriktsdepartementet",
+    ministryKey: "kmd",
+    icon: "🏘️",
+    leader: "Johnny Welle",
+    title: "Kartverksjef",
+    description: "Norges nasjonale kartmyndighet. Forvalter eiendomsdata, sjøkart, geodata og matrikkelen.",
+    employees: "~850",
+    location: "Hønefoss",
+    tags: ["Kart", "Geodata", "Digitalisering"],
+    url: "kartverket.no"
+  },
+  {
+    name: "Distriktssenteret",
+    abbrev: "",
+    ministry: "Kommunal- og distriktsdepartementet",
+    ministryKey: "kmd",
+    icon: "🏘️",
+    leader: "Halvor Holmli",
+    title: "Direktør",
+    description: "Kompetansesenter for distriktsutvikling. Formidler kunnskap og erfaringer som bidrar til attraktive lokalsamfunn.",
+    employees: "~30",
+    location: "Sogndal / Steinkjer / Alstadhaug",
+    tags: ["Distrikt", "Utvikling"],
+    url: "distriktssenteret.no"
+  },
+
+  // ===== Kultur- og likestillingsdepartementet =====
+  {
+    name: "Kulturdirektoratet",
+    abbrev: "",
+    ministry: "Kultur- og likestillingsdepartementet",
+    ministryKey: "kud",
+    icon: "🎭",
+    leader: "Kristin Danielsen",
+    title: "Direktør",
+    description: "Gjennomfører statlig kulturpolitikk gjennom tilskuddsordninger og faglig rådgivning.",
+    employees: "~130",
+    location: "Oslo",
+    tags: ["Kultur", "Tilskudd"],
+    url: "kulturdirektoratet.no"
+  },
+  {
+    name: "Medietilsynet",
+    abbrev: "",
+    ministry: "Kultur- og likestillingsdepartementet",
+    ministryKey: "kud",
+    icon: "🎭",
+    leader: "Mari Velsand",
+    title: "Direktør",
+    description: "Fører tilsyn med norske medier. Ansvar for mediemangfold, mediestøtte og trygg mediebruk.",
+    employees: "~70",
+    location: "Fredrikstad",
+    tags: ["Media", "Tilsyn"],
+    url: "medietilsynet.no"
+  },
+  {
+    name: "Lotteri- og stiftelsestilsynet",
+    abbrev: "",
+    ministry: "Kultur- og likestillingsdepartementet",
+    ministryKey: "kud",
+    icon: "🎭",
+    leader: "Atle Hamar",
+    title: "Direktør",
+    description: "Fører tilsyn med lotterier, pengespill og stiftelser. Jobber mot ulovlig pengespill.",
+    employees: "~70",
+    location: "Førde",
+    tags: ["Tilsyn", "Pengespill"],
+    url: "lottstift.no"
+  },
+  {
+    name: "Arkivverket",
+    abbrev: "",
+    ministry: "Kultur- og likestillingsdepartementet",
+    ministryKey: "kud",
+    icon: "🎭",
+    leader: "Inga Bolstad",
+    title: "Riksarkivar",
+    description: "Norges nasjonale arkivmyndighet. Bevarer og tilgjengeliggjør arkiver av stor historisk og rettslig verdi.",
+    employees: "~300",
+    location: "Oslo / flere steder",
+    tags: ["Arkiv", "Digitalisering", "Kulturarv"],
+    url: "arkivverket.no"
+  },
+
+  // ===== Kunnskapsdepartementet =====
+  {
+    name: "Direktoratet for høyere utdanning og kompetanse",
+    abbrev: "HK-dir",
+    ministry: "Kunnskapsdepartementet",
+    ministryKey: "kd",
+    icon: "🎓",
+    leader: "Sveinung Skule",
+    title: "Direktør",
+    description: "Fagdirektorat for høyere utdanning, fagskoleutdanning og kompetansepolitikk. Forvalter Lånekassen.",
+    employees: "~450",
+    location: "Bergen / Oslo",
+    tags: ["Utdanning", "Kompetanse"],
+    url: "hkdir.no"
+  },
+  {
+    name: "Utdanningsdirektoratet",
+    abbrev: "Udir",
+    ministry: "Kunnskapsdepartementet",
+    ministryKey: "kd",
+    icon: "🎓",
+    leader: "Morten Rosenkvist",
+    title: "Direktør",
+    description: "Fagdirektorat for barnehage og grunnopplæring. Forvalter læreplaner, nasjonale prøver og tilskudd.",
+    employees: "~400",
+    location: "Oslo / Molde / Tromsø",
+    tags: ["Skole", "Barnehage", "Digitalisering"],
+    url: "udir.no"
+  },
+
+  // ===== Landbruks- og matdepartementet =====
+  {
+    name: "Landbruksdirektoratet",
+    abbrev: "",
+    ministry: "Landbruks- og matdepartementet",
+    ministryKey: "lmd",
+    icon: "🌾",
+    leader: "Jørn Rolfsen",
+    title: "Direktør",
+    description: "Gjennomfører landbrukspolitikken. Forvalter tilskuddsordninger, markedsregulering og eiendomspolitikk i landbruket.",
+    employees: "~230",
+    location: "Oslo / Alta",
+    tags: ["Landbruk", "Tilskudd"],
+    url: "landbruksdirektoratet.no"
+  },
+
+  // ===== Nærings- og fiskeridepartementet =====
+  {
+    name: "Fiskeridirektoratet",
+    abbrev: "",
+    ministry: "Nærings- og fiskeridepartementet",
+    ministryKey: "nfd",
+    icon: "🐟",
+    leader: "Frank Bakke-Jensen",
+    title: "Fiskeridirektør",
+    description: "Rådgiver for fiskeri- og havbrukspolitikk. Forvalter marine ressurser og kontrollerer fiskeriene.",
+    employees: "~450",
+    location: "Bergen",
+    tags: ["Fiskeri", "Havbruk"],
+    url: "fiskeridir.no"
+  },
+  {
+    name: "Brønnøysundregistrene",
+    abbrev: "BR",
+    ministry: "Nærings- og fiskeridepartementet",
+    ministryKey: "nfd",
+    icon: "🐟",
+    leader: "Lars Peder Brekk",
+    title: "Direktør",
+    description: "Forvalter en rekke nasjonale register, bl.a. Enhetsregisteret og Foretaksregisteret. Viktig for digitalisering.",
+    employees: "~600",
+    location: "Brønnøysund",
+    tags: ["Register", "Digitalisering", "KI-relevant"],
+    hot: true,
+    url: "brreg.no",
+    kiReason: "Altinn 3 (neste generasjon, skybasert og open source) legger til rette for KI-drevne smartskjemaer og automatisert validering. ML brukes for datakvalitet og avdekking av mistenkelige selskapsregistreringer. NADOBE muliggjør automatisert datadeling mellom etater – grunnlag for «kun-én-gang»-prinsippet med KI.",
+    kiSource: "brreg.no, altinn.no"
+  },
+  {
+    name: "Sjøfartsdirektoratet",
+    abbrev: "Sdir",
+    ministry: "Nærings- og fiskeridepartementet",
+    ministryKey: "nfd",
+    icon: "🐟",
+    leader: "Knut Arild Hareide",
+    title: "Sjøfartsdirektør",
+    description: "Fører tilsyn med sikkerhet på norske skip og andre flyttbare innretninger til sjøs.",
+    employees: "~340",
+    location: "Haugesund",
+    tags: ["Sjøfart", "Sikkerhet", "Tilsyn"],
+    url: "sdir.no"
+  },
+  {
+    name: "Patentstyret",
+    abbrev: "",
+    ministry: "Nærings- og fiskeridepartementet",
+    ministryKey: "nfd",
+    icon: "🐟",
+    leader: "Kathrine Myhre",
+    title: "Direktør",
+    description: "Behandler søknader om patent, varemerke og design. Norges immaterialrettsmyndighet.",
+    employees: "~250",
+    location: "Oslo",
+    tags: ["Patent", "Innovasjon"],
+    url: "patentstyret.no"
+  },
+
+  // ===== Olje- og energidepartementet =====
+  {
+    name: "Norges vassdrags- og energidirektorat",
+    abbrev: "NVE",
+    ministry: "Energidepartementet",
+    ministryKey: "oed",
+    icon: "⚡",
+    leader: "Kjetil Lund",
+    title: "Direktør",
+    description: "Forvalter vann- og energiressurser. Ansvar for flom- og skredvarsling og regulering av kraftmarkedet.",
+    employees: "~650",
+    location: "Oslo",
+    tags: ["Energi", "Vann", "Beredskap"],
+    url: "nve.no"
+  },
+  {
+    name: "Sokkeldirektoratet",
+    abbrev: "",
+    ministry: "Energidepartementet",
+    ministryKey: "oed",
+    icon: "⚡",
+    leader: "Torgeir Stordal",
+    title: "Direktør",
+    description: "Fagdirektorat for olje- og gassressurser på norsk sokkel. Tidligere Oljedirektoratet.",
+    employees: "~220",
+    location: "Stavanger",
+    tags: ["Petroleum", "Ressurser"],
+    url: "sodir.no"
+  },
+
+  // ===== Samferdselsdepartementet =====
+  {
+    name: "Jernbanedirektoratet",
+    abbrev: "",
+    ministry: "Samferdselsdepartementet",
+    ministryKey: "sd",
+    icon: "🚆",
+    leader: "Knut Sletta",
+    title: "Jernbanedirektør",
+    description: "Koordinerer og utvikler jernbanesektoren. Ansvar for langsiktig planlegging og kjøp av persontransport på jernbane.",
+    employees: "~400",
+    location: "Oslo",
+    tags: ["Jernbane", "Samferdsel"],
+    existing: true,
+    url: "jernbanedirektoratet.no"
+  },
+  {
+    name: "Statens vegvesen",
+    abbrev: "SVV",
+    ministry: "Samferdselsdepartementet",
+    ministryKey: "sd",
+    icon: "🚆",
+    leader: "Ingrid Dahl Hovland",
+    title: "Vegdirektør",
+    description: "Planlegger, bygger og drifter riksveinettet. Har ansvar for trafikksikkerhet og førerkort.",
+    employees: "~7 500",
+    location: "Oslo / flere steder",
+    tags: ["Vei", "Trafikk", "Digitalisering"],
+    url: "vegvesen.no"
+  },
+  {
+    name: "Luftfartstilsynet",
+    abbrev: "",
+    ministry: "Samferdselsdepartementet",
+    ministryKey: "sd",
+    icon: "🚆",
+    leader: "Lars Kobberstad",
+    title: "Luftfartsdirektør",
+    description: "Fører tilsyn med sivil luftfart i Norge. Sikrer et høyt sikkerhetsnivå i norsk luftfart.",
+    employees: "~200",
+    location: "Bodø",
+    tags: ["Luftfart", "Tilsyn", "Sikkerhet"],
+    url: "luftfartstilsynet.no"
+  },
+  {
+    name: "Kystverket",
+    abbrev: "",
+    ministry: "Samferdselsdepartementet",
+    ministryKey: "sd",
+    icon: "🚆",
+    leader: "Einar Vik Arset",
+    title: "Kystdirektør",
+    description: "Ansvar for sjøsikkerhet, navigasjonsinfrastruktur, beredskap mot akutt forurensning og havneforvaltning.",
+    employees: "~1 000",
+    location: "Ålesund",
+    tags: ["Sjøfart", "Beredskap", "Infrastruktur"],
+    url: "kystverket.no"
+  },
+  {
+    name: "Statens jernbanetilsyn",
+    abbrev: "SJT",
+    ministry: "Samferdselsdepartementet",
+    ministryKey: "sd",
+    icon: "🚆",
+    leader: "Erik Ø. Reiersøl-Johnsen",
+    title: "Direktør",
+    description: "Tilsynsmyndighet for jernbane, trikk, T-bane og taubaner. Sikrer trygg transport på skinner.",
+    employees: "~60",
+    location: "Oslo",
+    tags: ["Jernbane", "Tilsyn"],
+    url: "sjt.no"
+  },
+
+  // ===== Utenriksdepartementet =====
+  {
+    name: "Norad",
+    abbrev: "Norad",
+    ministry: "Utenriksdepartementet",
+    ministryKey: "ud",
+    icon: "🌍",
+    leader: "Bård Vegar Solhjell",
+    title: "Direktør",
+    description: "Direktoratet for utviklingssamarbeid. Gir faglige råd og forvalter tilskudd for bistand og utviklingspolitikk.",
+    employees: "~300",
+    location: "Oslo",
+    tags: ["Bistand", "Utvikling"],
+    url: "norad.no"
+  }
+];
+
+// ---- App logic ----
+let currentView = 'cards';
+let searchTerm = '';
+let ministryFilterValue = '';
+let activeTagFilter = '';
+
+function init() {
+  populateMinistryFilter();
+  updateStats();
+  render();
+  setupEvents();
+}
+
+function populateMinistryFilter() {
+  const select = document.getElementById('ministryFilter');
+  const ministries = [...new Set(data.map(d => d.ministry))].sort();
+  ministries.forEach(m => {
+    const opt = document.createElement('option');
+    opt.value = m;
+    opt.textContent = m;
+    select.appendChild(opt);
+  });
+}
+
+function filtered() {
+  return data.filter(d => {
+    const matchMinistry = !ministryFilterValue || d.ministry === ministryFilterValue;
+    if (!matchMinistry) return false;
+    const matchTag = !activeTagFilter || d.tags.includes(activeTagFilter);
+    if (!matchTag) return false;
+    if (!searchTerm) return true;
+    const s = searchTerm.toLowerCase();
+    return (
+      d.name.toLowerCase().includes(s) ||
+      (d.abbrev && d.abbrev.toLowerCase().includes(s)) ||
+      d.ministry.toLowerCase().includes(s) ||
+      d.leader.toLowerCase().includes(s) ||
+      d.description.toLowerCase().includes(s) ||
+      d.tags.some(t => t.toLowerCase().includes(s)) ||
+      d.location.toLowerCase().includes(s)
+    );
+  });
+}
+
+function hl(text) {
+  if (!searchTerm) return text;
+  const re = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+  return text.replace(re, '<span class="highlight">$1</span>');
+}
+
+function renderCards(items) {
+  const container = document.getElementById('cardsContainer');
+  if (items.length === 0) {
+    container.innerHTML = '';
+    document.getElementById('noResults').style.display = 'block';
+    return;
+  }
+  document.getElementById('noResults').style.display = 'none';
+
+  const grouped = {};
+  items.forEach(d => {
+    if (!grouped[d.ministry]) grouped[d.ministry] = [];
+    grouped[d.ministry].push(d);
+  });
+
+  const ministryOrder = [...new Set(data.map(d => d.ministry))];
+  let html = '';
+
+  ministryOrder.forEach(ministry => {
+    const group = grouped[ministry];
+    if (!group) return;
+    const key = group[0].ministryKey;
+    const icon = group[0].icon;
+    html += `<div class="ministry-section color-${key}">
+      <div class="ministry-header">
+        <div class="ministry-icon">${icon}</div>
+        <h2>${hl(ministry)}</h2>
+        <span class="count">${group.length} ${group.length === 1 ? 'etat' : 'etater'}</span>
+      </div>
+      <div class="cards-grid">`;
+
+    group.forEach(d => {
+      const tagsHtml = d.tags.map(t => {
+        let cls = 'tag';
+        if (d.hot && (t === 'KI-relevant' || t === 'Digitalisering')) cls += ' hot';
+        if (d.existing) cls += ' existing';
+        return `<span class="${cls}">${hl(t)}</span>`;
+      }).join('');
+
+      const existingBadge = d.existing
+        ? '<span style="background:#e8f5e9;color:#2e7d32;font-size:0.78rem;font-weight:600;padding:3px 8px;border-radius:4px;">Eksisterende kunde</span>'
+        : '';
+
+      html += `<div class="card color-${key}">
+        <div class="card-top">
+          <h3>${hl(d.name)}</h3>
+          ${d.abbrev ? `<span class="abbrev">${hl(d.abbrev)}</span>` : ''}
+        </div>
+        <div class="description">${hl(d.description)}</div>
+        <div class="card-meta">
+          <div class="meta-row">
+            <span class="meta-icon">👤</span>
+            <span class="meta-label">Leder:</span>
+            <span class="meta-value">${hl(d.leader)}</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-icon">📋</span>
+            <span class="meta-label">Tittel:</span>
+            <span class="meta-value">${hl(d.title)}</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-icon">📍</span>
+            <span class="meta-label">Sted:</span>
+            <span class="meta-value">${hl(d.location)}</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-icon">👥</span>
+            <span class="meta-label">Ansatte:</span>
+            <span class="meta-value">${d.employees}</span>
+          </div>
+        </div>
+        <div style="margin-top:10px;">${tagsHtml} ${existingBadge}</div>
+        ${d.kiReason ? `<div class="ki-reason">
+          <div class="ki-reason-title">KI-vurdering</div>
+          <div class="ki-reason-text">${hl(d.kiReason)}</div>
+          ${d.kiSource ? `<div class="ki-reason-source">Kilde: ${d.kiSource}</div>` : ''}
+        </div>` : ''}
+      </div>`;
+    });
+
+    html += `</div></div>`;
+  });
+
+  container.innerHTML = html;
+}
+
+function renderTable(items) {
+  const container = document.getElementById('tableContainer');
+  if (items.length === 0) {
+    container.innerHTML = '';
+    document.getElementById('noResults').style.display = 'block';
+    return;
+  }
+  document.getElementById('noResults').style.display = 'none';
+
+  let html = `<table>
+    <thead><tr>
+      <th>Direktorat/etat</th>
+      <th>Departement</th>
+      <th>Leder</th>
+      <th>Sted</th>
+      <th>Ansatte</th>
+      <th>Beskrivelse</th>
+    </tr></thead><tbody>`;
+
+  items.forEach(d => {
+    const existingBadge = d.existing ? ' <span class="tag existing">Kunde</span>' : '';
+    const hotBadge = d.hot ? ' <span class="tag hot">KI-relevant</span>' : '';
+    html += `<tr>
+      <td class="name-cell">${hl(d.name)}${d.abbrev ? ` <span style="color:#888">(${hl(d.abbrev)})</span>` : ''}${existingBadge}${hotBadge}</td>
+      <td class="ministry-cell">${hl(d.ministry)}</td>
+      <td class="leader-cell">${hl(d.leader)}</td>
+      <td>${hl(d.location)}</td>
+      <td>${d.employees}</td>
+      <td class="desc-cell">${hl(d.description)}</td>
+    </tr>`;
+  });
+
+  html += '</tbody></table>';
+  container.innerHTML = html;
+}
+
+function render() {
+  const items = filtered();
+  document.getElementById('visibleCount').textContent = items.length;
+
+  const cardsEl = document.getElementById('cardsContainer');
+  const tableEl = document.getElementById('tableContainer');
+  if (currentView === 'cards') {
+    cardsEl.style.display = 'block';
+    tableEl.style.display = 'none';
+    renderCards(items);
+  } else {
+    cardsEl.style.display = 'none';
+    tableEl.style.display = 'block';
+    renderTable(items);
+  }
+}
+
+function updateStats() {
+  document.getElementById('totalCount').textContent = data.length;
+  document.getElementById('ministryCount').textContent = new Set(data.map(d => d.ministry)).size;
+  document.getElementById('visibleCount').textContent = data.length;
+}
+
+function setupEvents() {
+  document.getElementById('searchInput').addEventListener('input', e => {
+    searchTerm = e.target.value.trim();
+    render();
+  });
+
+  document.getElementById('ministryFilter').addEventListener('change', e => {
+    ministryFilterValue = e.target.value;
+    render();
+  });
+
+  document.querySelectorAll('.view-toggle button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.view-toggle button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentView = btn.dataset.view;
+      document.getElementById('exportBtn').style.display = currentView === 'table' ? '' : 'none';
+      render();
+    });
+  });
+
+  document.querySelectorAll('.tag-filter').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tag = btn.dataset.tag;
+      if (activeTagFilter === tag) {
+        activeTagFilter = '';
+        btn.classList.remove('active');
+      } else {
+        activeTagFilter = tag;
+        document.querySelectorAll('.tag-filter').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      }
+      render();
+    });
+  });
+
+  document.getElementById('exportBtn').addEventListener('click', exportToExcel);
+}
+
+function exportToExcel() {
+  const items = filtered();
+  const headers = ['Direktorat/etat', 'Forkortelse', 'Departement', 'Leder', 'Tittel', 'Sted', 'Ansatte', 'Beskrivelse', 'Stikkord', 'Nettside', 'Eksist. kunde', 'KI-relevant', 'KI-vurdering', 'KI-kilde'];
+  function parseEmployees(str) {
+    const nums = str.match(/[\d\s]+/g);
+    if (!nums) return str;
+    const parsed = nums.map(n => parseInt(n.replace(/\s/g, ''), 10)).filter(n => !isNaN(n));
+    return parsed.length ? Math.max(...parsed) : str;
+  }
+  const rows = items.map(d => [
+    d.name, d.abbrev || '', d.ministry, d.leader, d.title, d.location,
+    parseEmployees(d.employees), d.description, d.tags.join(', '), d.url || '',
+    d.existing ? 'Ja' : '', d.hot ? 'Ja' : '',
+    d.kiReason || '', d.kiSource || ''
+  ]);
+
+  const ws = XLSX.utils.aoa_to_sheet([headers, ...rows]);
+  ws['!cols'] = [
+    {wch:35},{wch:10},{wch:32},{wch:24},{wch:22},{wch:22},
+    {wch:14},{wch:50},{wch:24},{wch:20},{wch:12},{wch:12},{wch:60},{wch:30}
+  ];
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, 'Direktorater');
+  XLSX.writeFile(wb, 'Statlige_direktorater.xlsx');
+}
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>
