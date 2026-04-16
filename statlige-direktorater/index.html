@@ -445,10 +445,25 @@
 
   @media (max-width: 860px) {
     .cards-grid { grid-template-columns: 1fr; }
-    header { padding: 24px 16px 20px; }
-    header h1 { font-size: 1.5rem; }
-    main { padding: 16px 12px 40px; }
-    .card { padding: 18px; }
+    header { padding: 16px 12px 12px; position: relative; top: auto; }
+    header h1 { font-size: 1.3rem; margin-bottom: 2px; }
+    header p.subtitle { font-size: 0.85rem; margin-bottom: 10px; }
+    .header-stats { gap: 8px; margin-bottom: 8px; flex-wrap: nowrap; }
+    .stat-box { padding: 5px 12px; flex: 1; text-align: center; }
+    .stat-box .num { font-size: 1.1rem; }
+    .stat-box .label { font-size: 0.65rem; }
+    .controls { gap: 8px; }
+    .search-box { min-width: 0; }
+    .search-box input { padding: 9px 12px 9px 36px; font-size: 0.9rem; }
+    .search-box::before { left: 10px; font-size: 0.95rem; }
+    .filter-select { padding: 9px 12px; font-size: 0.9rem; min-width: 0; width: 100%; }
+    .tag-filter { padding: 7px 12px; font-size: 0.82rem; }
+    .view-toggle button { padding: 9px 14px; font-size: 0.85rem; }
+    .export-btn { padding: 8px 10px; }
+    main { padding: 12px 10px 40px; }
+    .card { padding: 16px; }
+    .ministry-header h2 { font-size: 1.1rem; }
+    .ministry-icon { width: 36px; height: 36px; font-size: 1.2rem; }
   }
 
   .tag-filters {
