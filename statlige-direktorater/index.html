@@ -337,10 +337,6 @@
     color: #e65100;
   }
 
-  .tag.existing {
-    background: #e8f5e9;
-    color: #2e7d32;
-  }
 
   /* Table view */
   .table-view { display: none; }
@@ -610,18 +606,18 @@ const data = [
     url: "imdi.no"
   },
   {
-    name: "Petroleumstilsynet",
-    abbrev: "Ptil",
+    name: "Maritim pensjonskasse",
+    abbrev: "",
     ministry: "Arbeids- og inkluderingsdepartementet",
     ministryKey: "aid",
     icon: "👥",
-    leader: "Anne Myhrvold",
+    leader: "",
     title: "Direktør",
-    description: "Ansvar for sikkerhet, arbeidsmiljø og beredskap i petroleumsvirksomheten og på enkelte landanlegg.",
-    employees: "~180",
-    location: "Stavanger",
-    tags: ["Tilsyn", "Petroleum", "Sikkerhet"],
-    url: "ptil.no"
+    description: "Forvalter pensjonsordningen for sjømenn. Sikrer pensjonsrettigheter for arbeidstakere i maritim sektor.",
+    employees: "~20",
+    location: "Bergen",
+    tags: ["Pensjon", "Sjøfart"],
+    url: "pensjonskassen.no"
   },
 
   // ===== Barne- og familiedepartementet =====
@@ -675,9 +671,9 @@ const data = [
   {
     name: "Direktoratet for forvaltning og økonomistyring",
     abbrev: "DFØ",
-    ministry: "Digitaliserings- og forvaltningsdepartementet",
-    ministryKey: "dfd",
-    icon: "💻",
+    ministry: "Finansdepartementet",
+    ministryKey: "fin",
+    icon: "💰",
     leader: "Hilde Singsaas",
     title: "Direktør",
     description: "Leverer lønns- og regnskapstjenester til statlige virksomheter. Utvikler styring, ledelse og organisering i staten.",
@@ -689,9 +685,9 @@ const data = [
   {
     name: "Nasjonal sikkerhetsmyndighet",
     abbrev: "NSM",
-    ministry: "Digitaliserings- og forvaltningsdepartementet",
-    ministryKey: "dfd",
-    icon: "💻",
+    ministry: "Justis- og beredskapsdepartementet",
+    ministryKey: "jd",
+    icon: "⚖️",
     leader: "Sofie Nystrøm",
     title: "Direktør",
     description: "Norges ekspertorgan for informasjons- og objektsikkerhet. Gir råd om forebyggende sikkerhetstiltak mot spionasje, sabotasje og terror.",
@@ -761,8 +757,11 @@ const data = [
     description: "Regulerer og fører tilsyn med elektronisk kommunikasjon (tele, internett, post). Forvalter frekvensressurser.",
     employees: "~180",
     location: "Lillesand",
-    tags: ["Telekom", "Digitalisering"],
-    url: "nkom.no"
+    tags: ["Telekom", "Digitalisering", "KI-relevant"],
+    hot: true,
+    url: "nkom.no",
+    kiReason: "Utpekt som Norges koordinerende tilsynsmyndighet for EU AI Act (KI-forordningen). Sentral rolle i KI-regulering og -tilsyn. Partner i KI Norge sammen med Digdir og Datatilsynet. Regulatorisk sandkasse for KI.",
+    kiSource: "nkom.no, digdir.no"
   },
 
   // ===== Finansdepartementet =====
@@ -794,8 +793,11 @@ const data = [
     description: "Kontrollerer vare- og persontrafikk over grensen. Innkrever toll og særavgifter, og motvirker smugling.",
     employees: "~1 500",
     location: "Oslo",
-    tags: ["Toll", "Grensekontroll"],
-    url: "toll.no"
+    tags: ["Toll", "Grensekontroll", "KI-relevant"],
+    hot: true,
+    url: "toll.no",
+    kiReason: "Prediktive modeller og ML for risikobasert grensekontroll og identifisering av høyrisikoforsendelser. KI-analyse av røntgendata og deklarasjonsdata for å avdekke narkotika, forfalskning og smugling.",
+    kiSource: "toll.no"
   },
   {
     name: "Finanstilsynet",
@@ -822,8 +824,11 @@ const data = [
     description: "Norges sentrale statistikkmyndighet. Utarbeider offisiell statistikk, forskning og analyse for samfunnet.",
     employees: "~850",
     location: "Oslo / Kongsvinger",
-    tags: ["Statistikk", "Data", "Analyse"],
-    url: "ssb.no"
+    tags: ["Statistikk", "Data", "Analyse", "KI-relevant"],
+    hot: true,
+    url: "ssb.no",
+    kiReason: "Aktiv bruk av ML for automatisk klassifisering (NACE-koder, yrkeskoding), tekstutvinning fra spørreundersøkelser og datakobling. Utforsker satelittbilder og alternative datakilder med ML som erstatning for tradisjonelle undersøkelser.",
+    kiSource: "ssb.no"
   },
 
   // ===== Helse- og omsorgsdepartementet =====
@@ -900,6 +905,51 @@ const data = [
     tags: ["Matsikkerhet", "Tilsyn"],
     url: "mattilsynet.no"
   },
+  {
+    name: "Direktoratet for strålevern og atomsikkerhet",
+    abbrev: "DSA",
+    ministry: "Helse- og omsorgsdepartementet",
+    ministryKey: "hod",
+    icon: "🏥",
+    leader: "Per Strand",
+    title: "Direktør",
+    description: "Fagmyndighet for strålevern og atomsikkerhet. Fører tilsyn med all bruk av stråling i Norge og overvåker radioaktivitet i miljøet.",
+    employees: "~120",
+    location: "Oslo",
+    tags: ["Strålevern", "Tilsyn", "Atomsikkerhet"],
+    url: "dsa.no"
+  },
+  {
+    name: "Norsk pasientskadeerstatning",
+    abbrev: "NPE",
+    ministry: "Helse- og omsorgsdepartementet",
+    ministryKey: "hod",
+    icon: "🏥",
+    leader: "Kristin Cordt-Hansen",
+    title: "Direktør",
+    description: "Behandler erstatningskrav fra pasienter som er påført skade etter feilbehandling i helsetjenesten.",
+    employees: "~180",
+    location: "Oslo",
+    tags: ["Helse", "Erstatning"],
+    url: "npe.no"
+  },
+  {
+    name: "Direktoratet for e-helse",
+    abbrev: "",
+    ministry: "Helse- og omsorgsdepartementet",
+    ministryKey: "hod",
+    icon: "🏥",
+    leader: "Mariann Hornnes",
+    title: "Direktør",
+    description: "Ansvar for nasjonal styring og koordinering av digitalisering i helse- og omsorgssektoren. Forvalter e-resept, kjernejournal og helsenorge.no.",
+    employees: "~300",
+    location: "Oslo",
+    tags: ["E-helse", "Digitalisering", "KI-relevant"],
+    hot: true,
+    url: "ehelse.no",
+    kiReason: "Sentral rolle i digitalisering av helsesektoren med KI-relevante systemer som kjernejournal og helseanalyseplattformen. Utvikler rammeverk for bruk av KI i helsetjenesten.",
+    kiSource: "ehelse.no"
+  },
 
   // ===== Justis- og beredskapsdepartementet =====
   {
@@ -945,7 +995,7 @@ const data = [
     employees: "~1 200",
     location: "Oslo",
     tags: ["Utlending", "Asyl", "Digitalisering"],
-    existing: true,
+
     url: "udi.no"
   },
   {
@@ -976,6 +1026,34 @@ const data = [
     tags: ["Utlending", "Klageorgan"],
     url: "une.no"
   },
+  {
+    name: "Sivil klareringsmyndighet",
+    abbrev: "SKM",
+    ministry: "Justis- og beredskapsdepartementet",
+    ministryKey: "jd",
+    icon: "⚖️",
+    leader: "Gudmund Gjølstad",
+    title: "Direktør",
+    description: "Behandler søknader om sikkerhetsklarering for personell som skal ha tilgang til sikkerhetsgradert informasjon.",
+    employees: "~50",
+    location: "Moss",
+    tags: ["Sikkerhet", "Klarering"],
+    url: "sivil-klareringsmyndighet.no"
+  },
+  {
+    name: "Statens sivilrettsforvaltning",
+    abbrev: "SRF",
+    ministry: "Justis- og beredskapsdepartementet",
+    ministryKey: "jd",
+    icon: "⚖️",
+    leader: "Sven Olav Rørvik",
+    title: "Direktør",
+    description: "Sentralmyndighet for vergemål, fri rettshjelp, erstatning etter straffeforfølging og tilskudd til rettshjelpsorganisasjoner.",
+    employees: "~70",
+    location: "Oslo",
+    tags: ["Justis", "Vergemål", "Rettshjelp"],
+    url: "sivilrett.no"
+  },
 
   // ===== Klima- og miljødepartementet =====
   {
@@ -989,8 +1067,11 @@ const data = [
     description: "Faglig rådgiver for klima- og miljøpolitikken. Forvalter naturmangfold, forurensning og klima.",
     employees: "~750",
     location: "Trondheim / Oslo",
-    tags: ["Miljø", "Klima", "Naturvern"],
-    url: "miljodirektoratet.no"
+    tags: ["Miljø", "Klima", "Naturvern", "KI-relevant"],
+    hot: true,
+    url: "miljodirektoratet.no",
+    kiReason: "ML for fjernmåling og overvåking av arealbruksendringer, avskoging og naturkartlegging. Bildegjenkjenning for artsidentifisering (viltkameraer, folkeforskning). Datadrevne modeller for utslippsovervåking.",
+    kiSource: "miljodirektoratet.no"
   },
   {
     name: "Norsk Polarinstitutt",
@@ -1005,6 +1086,20 @@ const data = [
     location: "Tromsø",
     tags: ["Forskning", "Polar", "Klima"],
     url: "npolar.no"
+  },
+  {
+    name: "Riksantikvaren",
+    abbrev: "",
+    ministry: "Klima- og miljødepartementet",
+    ministryKey: "kld",
+    icon: "🌿",
+    leader: "Hanna Geiran",
+    title: "Riksantikvar",
+    description: "Direktorat for kulturminneforvaltning. Ansvar for å ivareta kulturminner og kulturmiljøer i Norge.",
+    employees: "~170",
+    location: "Oslo",
+    tags: ["Kulturminner", "Forvaltning"],
+    url: "riksantikvaren.no"
   },
 
   // ===== Kommunal- og distriktsdepartementet =====
@@ -1047,8 +1142,11 @@ const data = [
     description: "Norges nasjonale kartmyndighet. Forvalter eiendomsdata, sjøkart, geodata og matrikkelen.",
     employees: "~850",
     location: "Hønefoss",
-    tags: ["Kart", "Geodata", "Digitalisering"],
-    url: "kartverket.no"
+    tags: ["Kart", "Geodata", "Digitalisering", "KI-relevant"],
+    hot: true,
+    url: "kartverket.no",
+    kiReason: "ML for automatisk featureekstraksjon fra satellitt- og flybilder, arealklassifisering og endringsdeteksjon. KI brukes til å automatisere kartproduksjon og forbedre datakvalitet i geodatasett.",
+    kiSource: "kartverket.no"
   },
   {
     name: "Distriktssenteret",
@@ -1063,6 +1161,20 @@ const data = [
     location: "Sogndal / Steinkjer / Alstadhaug",
     tags: ["Distrikt", "Utvikling"],
     url: "distriktssenteret.no"
+  },
+  {
+    name: "Valgdirektoratet",
+    abbrev: "",
+    ministry: "Kommunal- og distriktsdepartementet",
+    ministryKey: "kmd",
+    icon: "🏘️",
+    leader: "Bjørn Berg",
+    title: "Direktør",
+    description: "Ansvar for gjennomføring av stortingsvalg, kommunestyre- og fylkestingsvalg. Drifter det elektroniske valgadministrasjonssystemet.",
+    employees: "~60",
+    location: "Oslo",
+    tags: ["Valg", "Digitalisering"],
+    url: "valgdirektoratet.no"
   },
 
   // ===== Kultur- og likestillingsdepartementet =====
@@ -1119,8 +1231,81 @@ const data = [
     description: "Norges nasjonale arkivmyndighet. Bevarer og tilgjengeliggjør arkiver av stor historisk og rettslig verdi.",
     employees: "~300",
     location: "Oslo / flere steder",
-    tags: ["Arkiv", "Digitalisering", "Kulturarv"],
-    url: "arkivverket.no"
+    tags: ["Arkiv", "Digitalisering", "Kulturarv", "KI-relevant"],
+    hot: true,
+    url: "arkivverket.no",
+    kiReason: "KI for digitalisering og OCR/HTR (håndskriftgjenkjenning) av historiske dokumenter. Digitalarkivet bruker ML for å gjøre millioner av arkivposter søkbare. Utforsker KI-assistert klassifisering av digitalt skapt materiale.",
+    kiSource: "arkivverket.no"
+  },
+  {
+    name: "Kulturtanken",
+    abbrev: "",
+    ministry: "Kultur- og likestillingsdepartementet",
+    ministryKey: "kud",
+    icon: "🎭",
+    leader: "Øystein Strand",
+    title: "Direktør",
+    description: "Den kulturelle skolesekken. Sikrer at alle skoleelever får oppleve profesjonell kunst og kultur.",
+    employees: "~30",
+    location: "Oslo",
+    tags: ["Kultur", "Skole"],
+    url: "kulturtanken.no"
+  },
+  {
+    name: "Kunst i offentlige rom",
+    abbrev: "KORO",
+    ministry: "Kultur- og likestillingsdepartementet",
+    ministryKey: "kud",
+    icon: "🎭",
+    leader: "Sigurd Sverdrup Sandmo",
+    title: "Direktør",
+    description: "Produserer og forvalter kunst i offentlige bygg og uterom. Norges ledende fagorganisasjon for kunst i offentlige rom.",
+    employees: "~25",
+    location: "Oslo",
+    tags: ["Kunst", "Forvaltning"],
+    url: "koro.no"
+  },
+  {
+    name: "Norsk filminstitutt",
+    abbrev: "NFI",
+    ministry: "Kultur- og likestillingsdepartementet",
+    ministryKey: "kud",
+    icon: "🎭",
+    leader: "Kjersti Mo",
+    title: "Direktør",
+    description: "Statens forvaltningsorgan for film, serier og dataspill. Forvalter tilskuddsordninger og fremmer norsk audiovisuell bransje.",
+    employees: "~100",
+    location: "Oslo",
+    tags: ["Film", "Dataspill", "Tilskudd"],
+    url: "nfi.no"
+  },
+  {
+    name: "Norsk kulturråd",
+    abbrev: "",
+    ministry: "Kultur- og likestillingsdepartementet",
+    ministryKey: "kud",
+    icon: "🎭",
+    leader: "Kristin Danielsen",
+    title: "Direktør",
+    description: "Gir tilskudd til kunst og kultur over hele landet. Forvalter Norsk kulturfond og Statens kunstnerstipend.",
+    employees: "~130",
+    location: "Oslo",
+    tags: ["Kultur", "Tilskudd"],
+    url: "kulturradet.no"
+  },
+  {
+    name: "Språkrådet",
+    abbrev: "",
+    ministry: "Kultur- og likestillingsdepartementet",
+    ministryKey: "kud",
+    icon: "🎭",
+    leader: "Åse Wetås",
+    title: "Direktør",
+    description: "Statens fagorgan i språkspørsmål. Arbeider for å styrke norsk språk og språkmangfold, inkl. nynorsk, samisk og norsk tegnspråk.",
+    employees: "~40",
+    location: "Oslo",
+    tags: ["Språk", "Forvaltning"],
+    url: "sprakradet.no"
   },
 
   // ===== Kunnskapsdepartementet =====
@@ -1151,6 +1336,62 @@ const data = [
     location: "Oslo / Molde / Tromsø",
     tags: ["Skole", "Barnehage", "Digitalisering"],
     url: "udir.no"
+  },
+  {
+    name: "Sikt – Kunnskapssektorens tjenesteleverandør",
+    abbrev: "Sikt",
+    ministry: "Kunnskapsdepartementet",
+    ministryKey: "kd",
+    icon: "🎓",
+    leader: "Roar Olsen",
+    title: "Direktør",
+    description: "Leverer IKT-tjenester til universiteter, høgskoler og forskningsinstitutter. Drifter Feide, data- og tjenesteplattformer for forskning og utdanning.",
+    employees: "~400",
+    location: "Trondheim / Bergen / Oslo",
+    tags: ["IKT", "Forskning", "Digitalisering"],
+    url: "sikt.no"
+  },
+  {
+    name: "Statens lånekasse for utdanning",
+    abbrev: "Lånekassen",
+    ministry: "Kunnskapsdepartementet",
+    ministryKey: "kd",
+    icon: "🎓",
+    leader: "Morten Søberg",
+    title: "Direktør",
+    description: "Gir stipend og lån til elever og studenter. En av de mest digitaliserte etatene i offentlig sektor.",
+    employees: "~350",
+    location: "Oslo",
+    tags: ["Utdanning", "Lån", "Digitalisering"],
+    url: "lanekassen.no"
+  },
+  {
+    name: "Nasjonalt organ for kvalitet i utdanningen",
+    abbrev: "NOKUT",
+    ministry: "Kunnskapsdepartementet",
+    ministryKey: "kd",
+    icon: "🎓",
+    leader: "Kristin Vinje",
+    title: "Direktør",
+    description: "Kvalitetssikrer og fører tilsyn med høyere utdanning og fagskoleutdanning. Godkjenner utenlandsk utdanning.",
+    employees: "~150",
+    location: "Oslo",
+    tags: ["Utdanning", "Kvalitet", "Tilsyn"],
+    url: "nokut.no"
+  },
+  {
+    name: "Statped",
+    abbrev: "",
+    ministry: "Kunnskapsdepartementet",
+    ministryKey: "kd",
+    icon: "🎓",
+    leader: "Tone Mørk",
+    title: "Direktør",
+    description: "Statlig spesialpedagogisk tjeneste. Gir spesialpedagogiske tjenester til kommuner og fylkeskommuner for barn og voksne med særskilte opplæringsbehov.",
+    employees: "~700",
+    location: "Oslo / flere steder",
+    tags: ["Spesialpedagogikk", "Utdanning"],
+    url: "statped.no"
   },
 
   // ===== Landbruks- og matdepartementet =====
@@ -1229,8 +1470,92 @@ const data = [
     tags: ["Patent", "Innovasjon"],
     url: "patentstyret.no"
   },
+  {
+    name: "Direktoratet for mineralforvaltning med Bergmesteren for Svalbard",
+    abbrev: "DMF",
+    ministry: "Nærings- og fiskeridepartementet",
+    ministryKey: "nfd",
+    icon: "🐟",
+    leader: "Randi Skirstad Grini",
+    title: "Direktør",
+    description: "Forvalter mineralressurser og fører tilsyn med bergverksdrift i Norge og på Svalbard.",
+    employees: "~45",
+    location: "Trondheim",
+    tags: ["Mineral", "Tilsyn"],
+    url: "dirmin.no"
+  },
+  {
+    name: "Justervesenet",
+    abbrev: "",
+    ministry: "Nærings- og fiskeridepartementet",
+    ministryKey: "nfd",
+    icon: "🐟",
+    leader: "Kristine Bue Aasen",
+    title: "Direktør",
+    description: "Norges nasjonale metrologiinstitutt. Sikrer riktige målinger gjennom kalibrering, tilsyn og regelverk.",
+    employees: "~100",
+    location: "Kjeller",
+    tags: ["Metrologi", "Tilsyn"],
+    url: "justervesenet.no"
+  },
+  {
+    name: "Konkurransetilsynet",
+    abbrev: "",
+    ministry: "Nærings- og fiskeridepartementet",
+    ministryKey: "nfd",
+    icon: "🐟",
+    leader: "Tina Søreide",
+    title: "Direktør",
+    description: "Håndhever konkurranseloven. Fører tilsyn med fusjoner, oppkjøp og karteller for å sikre effektiv konkurranse.",
+    employees: "~120",
+    location: "Bergen",
+    tags: ["Konkurranse", "Tilsyn"],
+    url: "konkurransetilsynet.no"
+  },
+  {
+    name: "Norsk akkreditering",
+    abbrev: "NA",
+    ministry: "Nærings- og fiskeridepartementet",
+    ministryKey: "nfd",
+    icon: "🐟",
+    leader: "Bente Mathisen",
+    title: "Direktør",
+    description: "Akkrediterer laboratorier, inspeksjonsorganer og sertifiseringsorganer i Norge etter internasjonale standarder.",
+    employees: "~50",
+    location: "Lillestrøm",
+    tags: ["Akkreditering", "Kvalitet"],
+    url: "akkreditert.no"
+  },
+  {
+    name: "Norsk nukleær dekommisjonering",
+    abbrev: "NND",
+    ministry: "Nærings- og fiskeridepartementet",
+    ministryKey: "nfd",
+    icon: "🐟",
+    leader: "Pål Mikkelsen",
+    title: "Direktør",
+    description: "Ansvar for opprydding etter norsk atomenergiforskning, inkl. dekommisjonering av reaktorer og håndtering av radioaktivt avfall.",
+    employees: "~90",
+    location: "Halden",
+    tags: ["Atomenergi", "Opprydding"],
+    url: "nfrp.no"
+  },
+  {
+    name: "Dagligvaretilsynet",
+    abbrev: "",
+    ministry: "Nærings- og fiskeridepartementet",
+    ministryKey: "nfd",
+    icon: "🐟",
+    leader: "Magnus Gabrielsen",
+    title: "Direktør",
+    description: "Fører tilsyn med handelspraksisloven i dagligvaremarkedet. Sikrer rettferdig konkurranse mellom dagligvareleverandører og -kjeder.",
+    employees: "~15",
+    location: "Oslo",
+    tags: ["Dagligvare", "Tilsyn"],
+    url: "dagligvaretilsynet.no"
+  },
 
-  // ===== Olje- og energidepartementet =====
+  // ===== Energidepartementet =====
   {
     name: "Norges vassdrags- og energidirektorat",
     abbrev: "NVE",
@@ -1259,6 +1584,20 @@ const data = [
     tags: ["Petroleum", "Ressurser"],
     url: "sodir.no"
   },
+  {
+    name: "Havindustritilsynet",
+    abbrev: "",
+    ministry: "Energidepartementet",
+    ministryKey: "oed",
+    icon: "⚡",
+    leader: "Anne Myhrvold",
+    title: "Direktør",
+    description: "Ansvar for sikkerhet, arbeidsmiljø og beredskap i petroleumsvirksomhet og fornybar energi til havs. Tidligere Petroleumstilsynet.",
+    employees: "~180",
+    location: "Stavanger",
+    tags: ["Tilsyn", "Petroleum", "Sikkerhet", "Havvind"],
+    url: "havtil.no"
+  },
 
   // ===== Samferdselsdepartementet =====
   {
@@ -1273,7 +1612,7 @@ const data = [
     employees: "~400",
     location: "Oslo",
     tags: ["Jernbane", "Samferdsel"],
-    existing: true,
+
     url: "jernbanedirektoratet.no"
   },
   {
@@ -1287,8 +1626,11 @@ const data = [
     description: "Planlegger, bygger og drifter riksveinettet. Har ansvar for trafikksikkerhet og førerkort.",
     employees: "~7 500",
     location: "Oslo / flere steder",
-    tags: ["Vei", "Trafikk", "Digitalisering"],
-    url: "vegvesen.no"
+    tags: ["Vei", "Trafikk", "Digitalisering", "KI-relevant"],
+    hot: true,
+    url: "vegvesen.no",
+    kiReason: "Piloter med autonome kjøretøy og regulatorisk rammeverk. KI/ML for trafikkflyt, vegvedlikehold og tilstandsovervåking. Digital tvilling og bildegjenkjenning for inspeksjon av broer og tunneler.",
+    kiSource: "vegvesen.no"
   },
   {
     name: "Luftfartstilsynet",
@@ -1332,6 +1674,34 @@ const data = [
     tags: ["Jernbane", "Tilsyn"],
     url: "sjt.no"
   },
+  {
+    name: "Statens havarikommisjon",
+    abbrev: "SHK",
+    ministry: "Samferdselsdepartementet",
+    ministryKey: "sd",
+    icon: "🚆",
+    leader: "Kåre Halvorsen",
+    title: "Direktør",
+    description: "Undersøker ulykker og hendelser innen luftfart, jernbane, sjøfart, veitrafikk og forsvar for å forbedre sikkerheten.",
+    employees: "~70",
+    location: "Lillestrøm",
+    tags: ["Havari", "Sikkerhet", "Undersøkelse"],
+    url: "havarikommisjonen.no"
+  },
+  {
+    name: "Vegtilsynet",
+    abbrev: "",
+    ministry: "Samferdselsdepartementet",
+    ministryKey: "sd",
+    icon: "🚆",
+    leader: "Bjørne Grimsrud",
+    title: "Direktør",
+    description: "Fører tilsyn med at Statens vegvesen og Nye Veier følger krav til sikkerhet og kvalitet ved bygging og vedlikehold av vei.",
+    employees: "~20",
+    location: "Voss",
+    tags: ["Vei", "Tilsyn", "Sikkerhet"],
+    url: "vegtilsynet.no"
+  },
 
   // ===== Utenriksdepartementet =====
   {
@@ -1347,6 +1717,20 @@ const data = [
     location: "Oslo",
     tags: ["Bistand", "Utvikling"],
     url: "norad.no"
+  },
+  {
+    name: "Direktoratet for eksportkontroll og sanksjoner",
+    abbrev: "Deksa",
+    ministry: "Utenriksdepartementet",
+    ministryKey: "ud",
+    icon: "🌍",
+    leader: "",
+    title: "Direktør",
+    description: "Nyopprettet direktorat (2025) for eksportkontroll av strategiske varer og håndheving av internasjonale sanksjoner.",
+    employees: "~30",
+    location: "Oslo",
+    tags: ["Eksportkontroll", "Sanksjoner"],
+    url: "regjeringen.no"
   }
 ];
 
@@ -1435,13 +1819,8 @@ function renderCards(items) {
       const tagsHtml = d.tags.map(t => {
         let cls = 'tag';
         if (d.hot && (t === 'KI-relevant' || t === 'Digitalisering')) cls += ' hot';
-        if (d.existing) cls += ' existing';
         return `<span class="${cls}">${hl(t)}</span>`;
       }).join('');
-
-      const existingBadge = d.existing
-        ? '<span style="background:#e8f5e9;color:#2e7d32;font-size:0.78rem;font-weight:600;padding:3px 8px;border-radius:4px;">Eksisterende kunde</span>'
-        : '';
 
       html += `<div class="card color-${key}">
         <div class="card-top">
@@ -1471,7 +1850,7 @@ function renderCards(items) {
             <span class="meta-value">${d.employees}</span>
           </div>
         </div>
-        <div style="margin-top:10px;">${tagsHtml} ${existingBadge}</div>
+        <div style="margin-top:10px;">${tagsHtml}</div>
         ${d.kiReason ? `<div class="ki-reason">
           <div class="ki-reason-title">KI-vurdering</div>
           <div class="ki-reason-text">${hl(d.kiReason)}</div>
@@ -1506,10 +1885,9 @@ function renderTable(items) {
     </tr></thead><tbody>`;
 
   items.forEach(d => {
-    const existingBadge = d.existing ? ' <span class="tag existing">Kunde</span>' : '';
     const hotBadge = d.hot ? ' <span class="tag hot">KI-relevant</span>' : '';
     html += `<tr>
-      <td class="name-cell">${hl(d.name)}${d.abbrev ? ` <span style="color:#888">(${hl(d.abbrev)})</span>` : ''}${existingBadge}${hotBadge}</td>
+      <td class="name-cell">${hl(d.name)}${d.abbrev ? ` <span style="color:#888">(${hl(d.abbrev)})</span>` : ''}${hotBadge}</td>
       <td class="ministry-cell">${hl(d.ministry)}</td>
       <td class="leader-cell">${hl(d.leader)}</td>
       <td>${hl(d.location)}</td>
@@ -1586,7 +1964,7 @@ function setupEvents() {
 
 function exportToExcel() {
   const items = filtered();
-  const headers = ['Direktorat/etat', 'Forkortelse', 'Departement', 'Leder', 'Tittel', 'Sted', 'Ansatte', 'Beskrivelse', 'Stikkord', 'Nettside', 'Eksist. kunde', 'KI-relevant', 'KI-vurdering', 'KI-kilde'];
+  const headers = ['Direktorat/etat', 'Forkortelse', 'Departement', 'Leder', 'Tittel', 'Sted', 'Ansatte', 'Beskrivelse', 'Stikkord', 'Nettside', 'KI-relevant', 'KI-vurdering', 'KI-kilde'];
   function parseEmployees(str) {
     const nums = str.match(/[\d\s]+/g);
     if (!nums) return str;
@@ -1596,14 +1974,14 @@ function exportToExcel() {
   const rows = items.map(d => [
     d.name, d.abbrev || '', d.ministry, d.leader, d.title, d.location,
     parseEmployees(d.employees), d.description, d.tags.join(', '), d.url || '',
-    d.existing ? 'Ja' : '', d.hot ? 'Ja' : '',
+    d.hot ? 'Ja' : '',
     d.kiReason || '', d.kiSource || ''
   ]);
 
   const ws = XLSX.utils.aoa_to_sheet([headers, ...rows]);
   ws['!cols'] = [
     {wch:35},{wch:10},{wch:32},{wch:24},{wch:22},{wch:22},
-    {wch:14},{wch:50},{wch:24},{wch:20},{wch:12},{wch:12},{wch:60},{wch:30}
+    {wch:14},{wch:50},{wch:24},{wch:20},{wch:12},{wch:60},{wch:30}
   ];
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, 'Direktorater');
