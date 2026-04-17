@@ -103,3 +103,112 @@ Kilde: https://www.dfo.no/nokkeltall-og-statistikk/organisering-og-ansatte-i-sta
 - **15 med KI-relevant tag og kiReason**
 - **2 eksisterende kunder** (UDI, Jernbanedirektoratet)
 - Kryssvalidert mot Wikipedia (65 aktive) og DFØ (72 direktorater)
+
+## 2026-04-17: Lederverifisering
+
+### Oppgave
+Tilbakemelding om at mange av lederne i oversikten er utdaterte. Verifiser navn på leder for alle 78 direktorater mot offisielle kilder (regjeringen.no, etatens egne sider) per april 2026.
+
+### Arbeidsmetode
+- Delegert til 8 parallelle sub-agenter (Sonnet) som hver validerte ~10 direktorater
+- Hver lederstatus markert som correct / wrong / uncertain
+- Kilder primært regjeringen.no (utnevnelsessaker) og etatens "om oss / ledelse"-sider
+
+### Resultat
+- **32 korrekte** (uendret)
+- **44 feil/utdaterte → rettet**
+- **2 tomme felt fylt inn** (Maritim pensjonskasse → Åmund T. Lunde; Deksa → Annette Tjaberg)
+- Arkivverket omdøpt til Nasjonalarkivet per 1. januar 2026 (navn og tittel oppdatert)
+- Direktoratet for e-helse: sammenslått med Helsedirektoratet per 1. jan 2024 (markert i leder-feltet)
+- Norsk kulturråd: ikke lenger eget direktorat med egen direktør – fungerer nå som rådsorgan under Kulturdirektoratet (rådsleder Kristian Seltun)
+
+### Oversikt over rettelser (gammel → ny)
+
+**Arbeids- og inkluderingsdepartementet**
+- NAV: Hans Christian Holte → Hege Nilssen (tiltrer 1. juni 2026; Eve Vangsnes Bergli fung.)
+- Arbeidstilsynet: Trude Vollheim → Ingvill Kvernmo (okt 2024)
+- Maritim pensjonskasse: tom → Åmund T. Lunde (org. omdøpt fra Pensjonstrygden for sjømenn 2023)
+
+**Barne- og familiedepartementet**
+- Bufdir: Kjetil Andreas Ostling → Hege Nilssen (til 1. juni 2026, deretter NAV)
+- Forbrukertilsynet: Trond Rønningen → Bente Øverli (feb 2025)
+
+**Digitaliserings- og forvaltningsdepartementet / Finansdep.**
+- DFØ: Hilde Singsaas → Nina Cecilie Kulås (apr 2025)
+
+**Forsvarsdepartementet**
+- Forsvarsmateriell: Mette Sørfonden → Gro Jære
+- Forsvarsbygg: Thorbjørn Thoresen → Camilla Mathiesen (konst.)
+
+**Justis- og beredskapsdepartementet**
+- NSM: Sofie Nystrøm → Arne Christian Haugstøyl (mai 2024)
+- DSB: Elisabeth Aarsæther → Lars Jacob Hiim (feb 2026)
+- Politidirektoratet: Benedicte Bjørnland → Håkon Skulstad (2025)
+- UDI: Mari Trommald → Snorre Sæther (merk: Trommald var aldri UDI-direktør – original data feil)
+- Statens sivilrettsforvaltning: Sven Olav Rørvik → Siv Hallgren (sep 2022)
+
+**Finansdepartementet**
+- Tolletaten: Øystein Børmer → Benedicte Bjørnland (2026, Børmer til Statsbygg)
+
+**Helse- og omsorgsdepartementet**
+- Helsedirektoratet: Bjørn Guldvog → Cathrine Marie Lofthus (1. aug 2025)
+- DMP: Audun Hågå → Trygve Ottersen (nov 2024)
+- Helsetilsynet: Jan Fredrik Andresen → Sjur Lehmann (jan 2024)
+- Direktoratet for e-helse: avviklet 1. jan 2024 (sammenslått med Helsedirektoratet)
+
+**Klima- og miljødepartementet**
+- Miljødirektoratet: Ellen Hambro → Hilde Singsaas (1. mars 2025)
+
+**Kommunal- og distriktsdepartementet**
+- Husbanken: Osmund Kaldheim → Jan Hjelle
+- Distriktssenteret: Halvor Holmli → Marit Lofnes Mellingen (apr 2022)
+- Valgdirektoratet: Bjørn Berg → Siri Dolven
+
+**Kultur- og likestillingsdepartementet**
+- Kulturdirektoratet: Kristin Danielsen → Øystein Strand (1. mars 2026)
+- Kulturtanken: Øystein Strand → Matias Hilmar Iversen (2023)
+- KORO: Sigurd Sverdrup Sandmo → Karianne Kampevold Sætre (april 2026)
+- Språkrådet: Åse Wetås → Nina Teigland (konst., Wetås til Nasjonalbiblioteket apr 2026)
+- Norsk kulturråd: Kristin Danielsen → Kristian Seltun (rådsleder)
+- Arkivverket → Nasjonalarkivet (navn- og titteloppdatering)
+
+**Kunnskapsdepartementet**
+- Sikt: Roar Olsen → Terje Mørland
+- Lånekassen: Morten Søberg → Kjetil Moen
+- Statped: Tone Mørk → Annemarie Bechmann Hansen
+
+**Landbruks- og matdepartementet**
+- Landbruksdirektoratet: Jørn Rolfsen → Eli Reistad (2024)
+
+**Nærings- og fiskeridepartementet**
+- Brønnøysundregistrene: Lars Peder Brekk → Inger-Lise Strøm (13. apr 2026)
+- Sjøfartsdirektoratet: Knut Arild Hareide → Alf Tore Sørheim (apr 2025)
+- DMF: Randi Skirstad Grini → Bjarte Rambjør Heide (1. nov 2024)
+- Justervesenet: Kristine Bue Aasen → Geir A. Samuelsen
+- Konkurransetilsynet: Tina Søreide → Mads Magnussen (1. jan 2026)
+- Norsk akkreditering: Bente Mathisen → Inger Cecilie Laake
+- Dagligvaretilsynet: Magnus Gabrielsen → Tor Erik Engebretsen (NB: regjeringen har foreslått avvikling i 2026-budsjettet)
+
+**Energidepartementet**
+- Havindustritilsynet: Anne Myhrvold → Sigve Knudsen (1. mai 2025)
+
+**Samferdselsdepartementet**
+- Jernbanedirektoratet: Knut Sletta → Anne Iren Fagerbakke (nov 2025)
+- Statens havarikommisjon: Kåre Halvorsen → Ingvild K. Ytrehus (fung.)
+- Vegtilsynet: Bjørne Grimsrud → Vegard Hansen (2023)
+
+**Utenriksdepartementet**
+- Norad: Bård Vegar Solhjell → Gunn Jorid Roset (sommer 2025)
+- Deksa: tom → Annette Tjaberg (utnevnt juni 2025)
+
+### Korrekte (stikkprøver)
+IMDi (Libe Rieber-Mohn), Digdir (Frode Danielsen), Datatilsynet (Line Coll), Nkom (John-Eivind Velure), Skatteetaten (Nina Schanke Funnemark), Finanstilsynet (Per Mathis Kongsrud), SSB (Geir Axelsen), FHI (Guri Rørtveit), Mattilsynet (Ingunn Midttun Godal), DSA (Per Strand), NPE (Kristin Cordt-Hansen), Kriminalomsorgsdir. (Lise Sannerud), UNE (Marianne Jakobsen), SKM (Gudmund Gjølstad), Norsk Polarinstitutt (Camilla Brekke), Riksantikvaren (Hanna Geiran), DiBK (Per-Arne Horne), Kartverket (Johnny Welle), Medietilsynet (Mari Velsand), Lottstift (Atle Hamar), NFI (Kjersti Mo), HK-dir (Sveinung Skule), Udir (Morten Rosenkvist), NOKUT (Kristin Vinje), Fiskeridirektoratet (Frank Bakke-Jensen), Patentstyret (Kathrine Myhre), NND (Pål Mikkelsen), NVE (Kjetil Lund), Sokkeldirektoratet (Torgeir Stordal), Statens vegvesen (Ingrid Dahl Hovland), Luftfartstilsynet (Lars Kobberstad), Kystverket (Einar Vik Arset), SJT (Erik Ø. Reiersøl-Johnsen).
+
+### Læringspunkter
+- Omfanget av feil (56 % av lederne) bekrefter tilbakemeldingen – listen hadde drevet langt ut av sync siden forrige oppdatering
+- Flere utnevnelser har skjedd det siste året: Helsedir, NAV, Bufdir, Pol.dir, Tolletaten, DSB, DMP, Havtil, Norad
+- Flere "krysslanseringer": samme person flyttet mellom etater (Bjørnland: POD → Tolletaten; Øystein Strand: Kulturtanken → Kulturdir; Hilde Singsaas: DFØ → Miljødir; Hege Nilssen: Bufdir → NAV)
+- Kristin Danielsen var listet på både Kulturdirektoratet OG Norsk kulturråd – etter fusjonen i 2023 er disse samme enhet med Kulturdirektoratet som navn
+- Direktoratet for e-helse eksisterer ikke lenger (ble slått sammen med Helsedirektoratet 1. jan 2024). Bør vurderes fjernet helt ved neste revisjon
+- Norsk kulturråd har ikke lenger egen direktør – er nå et rådsorgan under Kulturdirektoratet. Bør vurderes fjernet eller flagget eksplisitt
+- Kilder: regjeringen.no gir best datering av formelle utnevnelser; etatens egen "ledelse"-side er raskest for fungerende/konstituerte
