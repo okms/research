@@ -1,0 +1,8 @@
+- 2026-04-17: Opprettet arbeidsmappe for å fjerne sticky toppmeny.
+- 2026-04-17: Fant årsaken i `index.html` der `header` brukte `position: sticky` med `top: 0`.
+- 2026-04-17: Endret `header` til `position: static` slik at toppseksjonen scroller normalt også på desktop.
+- 2026-04-17: Mobil og print hadde allerede ikke-sticky oppførsel, så endringen kunne gjøres som en enkel desktop-safe justering i basisstilen.
+- 2026-04-17: Starter verifisering med uvx rodney for å teste at toppmenyen ikke lenger er sticky.
+- 2026-04-17: Startet lokal rodney-sesjon og åpner index.html via file:// for funksjonell verifisering.
+- 2026-04-17: Verifisert med Rodney at `getComputedStyle(document.querySelector('header')).position` returnerer `static`.
+- 2026-04-17: Verifisert med Rodney-scroll at headerens topp-posisjon går fra `0` til `-600` når siden scrolles til `window.scrollY = 600`, som bekrefter at toppmenyen ikke er sticky.
