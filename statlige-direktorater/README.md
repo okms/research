@@ -16,7 +16,7 @@ Research and compile a comprehensive overview of Norwegian government directorat
 - [Wikipedia: Liste over norske direktorat](https://no.wikipedia.org/wiki/Liste_over_norske_direktorat) (65 aktive)
 - [DFØ: Organisering av virksomheter i staten](https://www.dfo.no/nokkeltall-og-statistikk/organisering-og-ansatte-i-staten/organisering-av-virksomheter-i-staten) (72 direktorater, 2025)
 
-Lederverifisering per 17. april 2026: 44 av 78 lederposisjoner var utdaterte og er nå oppdaterte mot offisielle kilder (regjeringen.no, etatens egne ledelsessider). Se `notes.md` for detaljert liste over rettelser.
+Lederverifisering per 17. april 2026: 48 av 78 lederposisjoner var utdaterte og er nå oppdatert mot offisielle kilder (regjeringen.no, etatenes egne ledelses- og kontaktsider). Se `notes.md` for detaljert liste over rettelser og etterkontroll.
 
 ## KI-relevans
 

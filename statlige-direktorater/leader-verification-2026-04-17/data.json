@@ -1,0 +1,1421 @@
+[
+  {
+    "name": "Arbeids- og velferdsdirektoratet",
+    "abbrev": "NAV",
+    "ministry": "Arbeids- og inkluderingsdepartementet",
+    "ministryKey": "aid",
+    "icon": "👥",
+    "leader": "Hege Nilssen (tiltrer 1. juni 2026; Eve Vangsnes Bergli fungerende)",
+    "title": "Arbeids- og velferdsdirektør",
+    "description": "Forvalter velferdsordninger som arbeidsledighetstrygd, sykepenger, pensjon, barnetrygd og sosialhjelp. Ansvar for å få flere i arbeid og aktivitet.",
+    "employees": "~20 000",
+    "location": "Oslo",
+    "tags": [
+      "Velferd",
+      "Arbeid",
+      "Digitalisering",
+      "KI-relevant"
+    ],
+    "hot": true,
+    "url": "nav.no",
+    "kiReason": "Norges største offentlige KI-bruker. ML for prediksjon av frafall fra arbeidsrettede tiltak, automatisert dokumentklassifisering og chatboten «Frida». Automatisert behandling av sykepenger og foreldrepenger. Utforsker Microsoft Copilot og interne LLM-er for saksbehandlerstøtte. Åpen om ansvarlig KI – publiserer algoritmedokumentasjon på GitHub (navikt.github.io).",
+    "kiSource": "nav.no, navikt.github.io"
+  },
+  {
+    "name": "Arbeidstilsynet",
+    "abbrev": "",
+    "ministry": "Arbeids- og inkluderingsdepartementet",
+    "ministryKey": "aid",
+    "icon": "👥",
+    "leader": "Ingvill Kvernmo",
+    "title": "Direktør",
+    "description": "Fører tilsyn med at virksomheter følger arbeidsmiljøloven. Jobber for et sikkert og helsefremmende arbeidsliv.",
+    "employees": "~700",
+    "location": "Trondheim",
+    "tags": [
+      "Tilsyn",
+      "HMS"
+    ],
+    "url": "arbeidstilsynet.no"
+  },
+  {
+    "name": "Integrerings- og mangfoldsdirektoratet",
+    "abbrev": "IMDi",
+    "ministry": "Arbeids- og inkluderingsdepartementet",
+    "ministryKey": "aid",
+    "icon": "👥",
+    "leader": "Libe Rieber-Mohn",
+    "title": "Direktør",
+    "description": "Fagdirektorat for integrering og mangfold. Bosetter flyktninger i kommuner og jobber for god integrering.",
+    "employees": "~300",
+    "location": "Oslo",
+    "tags": [
+      "Integrering",
+      "Mangfold"
+    ],
+    "url": "imdi.no"
+  },
+  {
+    "name": "Maritim pensjonskasse",
+    "abbrev": "MPK",
+    "ministry": "Arbeids- og inkluderingsdepartementet",
+    "ministryKey": "aid",
+    "icon": "👥",
+    "leader": "Åmund T. Lunde",
+    "title": "Direktør",
+    "description": "Forvalter pensjonsordningen for sjømenn. Sikrer pensjonsrettigheter for arbeidstakere i maritim sektor.",
+    "employees": "~20",
+    "location": "Bergen",
+    "tags": [
+      "Pensjon",
+      "Sjøfart"
+    ],
+    "url": "pensjonskassen.no"
+  },
+  {
+    "name": "Barne-, ungdoms- og familiedirektoratet",
+    "abbrev": "Bufdir",
+    "ministry": "Barne- og familiedepartementet",
+    "ministryKey": "bfd",
+    "icon": "👨‍👩‍👧",
+    "leader": "Hege Nilssen (til 1. juni 2026)",
+    "title": "Direktør",
+    "description": "Fagdirektorat for barnevern, familievern, likestilling og ikke-diskriminering. Styrer Bufetat.",
+    "employees": "~350 (dir.) / ~6 000 (Bufetat)",
+    "location": "Oslo",
+    "tags": [
+      "Barnevern",
+      "Likestilling"
+    ],
+    "url": "bufdir.no"
+  },
+  {
+    "name": "Forbrukertilsynet",
+    "abbrev": "",
+    "ministry": "Barne- og familiedepartementet",
+    "ministryKey": "bfd",
+    "icon": "👨‍👩‍👧",
+    "leader": "Bente Øverli",
+    "title": "Direktør",
+    "description": "Fører tilsyn med markedsføring og avtalevilkår. Håndhever forbrukerlovgivningen og sikrer forbrukernes rettigheter.",
+    "employees": "~60",
+    "location": "Skien",
+    "tags": [
+      "Tilsyn",
+      "Forbruker"
+    ],
+    "url": "forbrukertilsynet.no"
+  },
+  {
+    "name": "Digitaliseringsdirektoratet",
+    "abbrev": "Digdir",
+    "ministry": "Digitaliserings- og forvaltningsdepartementet",
+    "ministryKey": "dfd",
+    "icon": "💻",
+    "leader": "Frode Danielsen",
+    "title": "Direktør",
+    "description": "Ansvar for å samordne og fremme digitalisering i offentlig sektor. Forvalter fellesløsninger som Altinn, ID-porten og Felles datakatalog.",
+    "employees": "~400",
+    "location": "Oslo / Leikanger / Brønnøysund",
+    "tags": [
+      "Digitalisering",
+      "Fellesløsninger",
+      "KI-relevant"
+    ],
+    "hot": true,
+    "url": "digdir.no",
+    "kiReason": "Etablerer «KI Norge» (åpner aug. 2026, 30 MNOK bevilget) – nasjonal hub for KI i offentlig sektor. Koordinerer regjeringens mål om 80 % KI-adopsjon innen 2025 og 100 % innen 2030. Publiserer «Veiledning for KI i offentlig sektor». IT i praksis 2025 viser at 5 av 10 offentlige virksomheter bruker KI. Riksrevisjonen (Dok 3:18, 2023–2024) anslo besparelse på 155 000 årsverk ved full KI-utnyttelse.",
+    "kiSource": "digdir.no/kunstig-intelligens, riksrevisjonen.no"
+  },
+  {
+    "name": "Direktoratet for forvaltning og økonomistyring",
+    "abbrev": "DFØ",
+    "ministry": "Finansdepartementet",
+    "ministryKey": "fin",
+    "icon": "💰",
+    "leader": "Nina Cecilie Kulås",
+    "title": "Direktør",
+    "description": "Leverer lønns- og regnskapstjenester til statlige virksomheter. Utvikler styring, ledelse og organisering i staten.",
+    "employees": "~800",
+    "location": "Oslo / Stavanger",
+    "tags": [
+      "Økonomi",
+      "Forvaltning",
+      "Digitalisering"
+    ],
+    "url": "dfo.no"
+  },
+  {
+    "name": "Nasjonal sikkerhetsmyndighet",
+    "abbrev": "NSM",
+    "ministry": "Justis- og beredskapsdepartementet",
+    "ministryKey": "jd",
+    "icon": "⚖️",
+    "leader": "Arne Christian Haugstøyl",
+    "title": "Direktør",
+    "description": "Norges ekspertorgan for informasjons- og objektsikkerhet. Gir råd om forebyggende sikkerhetstiltak mot spionasje, sabotasje og terror.",
+    "employees": "~350",
+    "location": "Oslo",
+    "tags": [
+      "Sikkerhet",
+      "Cybersikkerhet",
+      "KI-relevant"
+    ],
+    "hot": true,
+    "url": "nsm.no",
+    "kiReason": "Risiko 2025-rapporten identifiserer KI som ny angrepsflate – varsler KI-drevne cyberangrep i 2026. Advarer mot deepfakes og KI-generert desinformasjon mot demokratiske prosesser. Leder NCC-NO (nasjonalt koordineringssenter for cybersikkerhetsforskning) med EU-midler til KI-baserte sikkerhetsløsninger. KI var hovedtema på Sikkerhetskonferansen 2025.",
+    "kiSource": "nsm.no/rapporter/risiko-2025"
+  },
+  {
+    "name": "Datatilsynet",
+    "abbrev": "",
+    "ministry": "Digitaliserings- og forvaltningsdepartementet",
+    "ministryKey": "dfd",
+    "icon": "💻",
+    "leader": "Line Coll",
+    "title": "Direktør",
+    "description": "Uavhengig forvaltningsorgan som fører tilsyn med personvernlovgivningen (GDPR). Viktig rolle for KI-regulering.",
+    "employees": "~70",
+    "location": "Oslo",
+    "tags": [
+      "Personvern",
+      "GDPR",
+      "KI-relevant"
+    ],
+    "hot": true,
+    "url": "datatilsynet.no",
+    "kiReason": "Driver verdens første regulatoriske sandkasse for KI (permanent fra 2023, 20+ gjennomførte prosjekter). Sentral i implementering av EU AI Act i Norge (ny lov på høring juni 2025, ikrafttredelse sen sommer 2026). Partner i KI Norge sammen med Digdir og Nkom. Sandkasseprosjekter inkl. NAV, Microsoft 365 Copilot personvernvurdering (NTNU), og KI-basert svindeldeteksjon (DNB/Nordea).",
+    "kiSource": "datatilsynet.no/sandkasse-for-kunstig-intelligens"
+  },
+  {
+    "name": "Forsvarsmateriell",
+    "abbrev": "FMA",
+    "ministry": "Forsvarsdepartementet",
+    "ministryKey": "fd",
+    "icon": "🛡️",
+    "leader": "Gro Jære",
+    "title": "Direktør",
+    "description": "Anskaffer, forvalter og avhender materiell for forsvarssektoren. Sikrer at Forsvaret har riktig utstyr.",
+    "employees": "~1 500",
+    "location": "Oslo / Kolsås",
+    "tags": [
+      "Forsvar",
+      "Materiel"
+    ],
+    "url": "forsvarsmateriell.no"
+  },
+  {
+    "name": "Forsvarsbygg",
+    "abbrev": "",
+    "ministry": "Forsvarsdepartementet",
+    "ministryKey": "fd",
+    "icon": "🛡️",
+    "leader": "Camilla Mathiesen (konst.)",
+    "title": "Direktør",
+    "description": "Bygger, drifter og avhender eiendom for forsvarssektoren. En av Norges største eiendomsforvaltere.",
+    "employees": "~1 700",
+    "location": "Oslo",
+    "tags": [
+      "Forsvar",
+      "Eiendom"
+    ],
+    "url": "forsvarsbygg.no"
+  },
+  {
+    "name": "Nasjonal kommunikasjonsmyndighet",
+    "abbrev": "Nkom",
+    "ministry": "Digitaliserings- og forvaltningsdepartementet",
+    "ministryKey": "dfd",
+    "icon": "💻",
+    "leader": "John-Eivind Velure",
+    "title": "Direktør",
+    "description": "Regulerer og fører tilsyn med elektronisk kommunikasjon (tele, internett, post). Forvalter frekvensressurser.",
+    "employees": "~180",
+    "location": "Lillesand",
+    "tags": [
+      "Telekom",
+      "Digitalisering",
+      "KI-relevant"
+    ],
+    "hot": true,
+    "url": "nkom.no",
+    "kiReason": "Utpekt som Norges koordinerende tilsynsmyndighet for EU AI Act (KI-forordningen). Sentral rolle i KI-regulering og -tilsyn. Partner i KI Norge sammen med Digdir og Datatilsynet. Regulatorisk sandkasse for KI.",
+    "kiSource": "nkom.no, digdir.no"
+  },
+  {
+    "name": "Skatteetaten",
+    "abbrev": "",
+    "ministry": "Finansdepartementet",
+    "ministryKey": "fin",
+    "icon": "💰",
+    "leader": "Nina Schanke Funnemark",
+    "title": "Skattedirektør",
+    "description": "Fastsetter og innkrever skatter og avgifter. Driver folkeregisteret og er stor på digitalisering i offentlig sektor.",
+    "employees": "~7 000",
+    "location": "Oslo",
+    "tags": [
+      "Skatt",
+      "Digitalisering",
+      "Folkeregister",
+      "KI-relevant"
+    ],
+    "hot": true,
+    "url": "skatteetaten.no",
+    "kiReason": "Fremhevet av Riksrevisjonen som forbilde for andre etater. ML-modell for å avdekke urapporterte utleieinntekter ga over 110 MNOK i økt rapportert inntekt. Bygget sikker generativ KI-plattform for ansatte (dokumentoppsummering, juridiske kilder, koding) – én prosess alene sparer 40 årsverk ved 96 % nøyaktighet. Egen «Policy for utvikling og bruk av KI» med fem grunnprinsipper. KI-assistert kundeservice under utvikling.",
+    "kiSource": "skatteetaten.no/kunstig-intelligens, riksrevisjonen.no"
+  },
+  {
+    "name": "Tolletaten",
+    "abbrev": "",
+    "ministry": "Finansdepartementet",
+    "ministryKey": "fin",
+    "icon": "💰",
+    "leader": "Benedicte Bjørnland",
+    "title": "Tolldirektør",
+    "description": "Kontrollerer vare- og persontrafikk over grensen. Innkrever toll og særavgifter, og motvirker smugling.",
+    "employees": "~1 500",
+    "location": "Oslo",
+    "tags": [
+      "Toll",
+      "Grensekontroll",
+      "KI-relevant"
+    ],
+    "hot": true,
+    "url": "toll.no",
+    "kiReason": "Prediktive modeller og ML for risikobasert grensekontroll og identifisering av høyrisikoforsendelser. KI-analyse av røntgendata og deklarasjonsdata for å avdekke narkotika, forfalskning og smugling.",
+    "kiSource": "toll.no"
+  },
+  {
+    "name": "Finanstilsynet",
+    "abbrev": "",
+    "ministry": "Finansdepartementet",
+    "ministryKey": "fin",
+    "icon": "💰",
+    "leader": "Per Mathis Kongsrud",
+    "title": "Finanstilsynsdirektør",
+    "description": "Fører tilsyn med banker, forsikringsselskaper, verdipapirmarkedet og finansiell rapportering.",
+    "employees": "~310",
+    "location": "Oslo",
+    "tags": [
+      "Tilsyn",
+      "Finans"
+    ],
+    "url": "finanstilsynet.no"
+  },
+  {
+    "name": "Statistisk sentralbyrå",
+    "abbrev": "SSB",
+    "ministry": "Finansdepartementet",
+    "ministryKey": "fin",
+    "icon": "💰",
+    "leader": "Geir Axelsen",
+    "title": "Administrerende direktør",
+    "description": "Norges sentrale statistikkmyndighet. Utarbeider offisiell statistikk, forskning og analyse for samfunnet.",
+    "employees": "~850",
+    "location": "Oslo / Kongsvinger",
+    "tags": [
+      "Statistikk",
+      "Data",
+      "Analyse",
+      "KI-relevant"
+    ],
+    "hot": true,
+    "url": "ssb.no",
+    "kiReason": "Aktiv bruk av ML for automatisk klassifisering (NACE-koder, yrkeskoding), tekstutvinning fra spørreundersøkelser og datakobling. Utforsker satelittbilder og alternative datakilder med ML som erstatning for tradisjonelle undersøkelser.",
+    "kiSource": "ssb.no"
+  },
+  {
+    "name": "Helsedirektoratet",
+    "abbrev": "Hdir",
+    "ministry": "Helse- og omsorgsdepartementet",
+    "ministryKey": "hod",
+    "icon": "🏥",
+    "leader": "Cathrine Marie Lofthus",
+    "title": "Helsedirektør",
+    "description": "Faglig rådgiver for helse- og omsorgstjenesten. Forvalter helselovgivning, retningslinjer og nasjonale e-helseløsninger.",
+    "employees": "~900",
+    "location": "Oslo",
+    "tags": [
+      "Helse",
+      "E-helse",
+      "Digitalisering",
+      "KI-relevant"
+    ],
+    "hot": true,
+    "url": "helsedirektoratet.no",
+    "kiReason": "Bidragsyter til Nasjonal e-helsestrategi med KI for diagnostikk, pasientflyt og beslutningsstøtte. Piloter med ML for medisinsk bildeanalyse (radiologi, patologi) og KI-assistert triagering. Helseanalyseplattformen skal muliggjøre KI-analyse av helseregisterdata. Publisert veiledning for ansvarlig bruk av KI i helsetjenesten. EU AI Act klassifiserer helse-KI som høyrisiko.",
+    "kiSource": "helsedirektoratet.no, ehelse.no"
+  },
+  {
+    "name": "Folkehelseinstituttet",
+    "abbrev": "FHI",
+    "ministry": "Helse- og omsorgsdepartementet",
+    "ministryKey": "hod",
+    "icon": "🏥",
+    "leader": "Guri Rørtveit",
+    "title": "Direktør",
+    "description": "Nasjonalt folkehelseinstitutt. Produserer kunnskap om folkehelse, smittevern og miljømedisin.",
+    "employees": "~1 100",
+    "location": "Oslo",
+    "tags": [
+      "Folkehelse",
+      "Forskning",
+      "Data"
+    ],
+    "url": "fhi.no"
+  },
+  {
+    "name": "Direktoratet for medisinske produkter",
+    "abbrev": "DMP",
+    "ministry": "Helse- og omsorgsdepartementet",
+    "ministryKey": "hod",
+    "icon": "🏥",
+    "leader": "Trygve Ottersen",
+    "title": "Direktør",
+    "description": "Godkjenner og overvåker legemidler, medisinsk utstyr og kosmetikk. Tidligere Statens legemiddelverk.",
+    "employees": "~400",
+    "location": "Oslo",
+    "tags": [
+      "Legemidler",
+      "Tilsyn"
+    ],
+    "url": "dmp.no"
+  },
+  {
+    "name": "Helsetilsynet",
+    "abbrev": "",
+    "ministry": "Helse- og omsorgsdepartementet",
+    "ministryKey": "hod",
+    "icon": "🏥",
+    "leader": "Sjur Lehmann",
+    "title": "Direktør",
+    "description": "Overordnet faglig tilsyn med helse- og omsorgstjenestene, barnevern og sosiale tjenester i NAV.",
+    "employees": "~120",
+    "location": "Oslo",
+    "tags": [
+      "Tilsyn",
+      "Helse"
+    ],
+    "url": "helsetilsynet.no"
+  },
+  {
+    "name": "Mattilsynet",
+    "abbrev": "",
+    "ministry": "Helse- og omsorgsdepartementet",
+    "ministryKey": "hod",
+    "icon": "🏥",
+    "leader": "Ingunn Midttun Godal",
+    "title": "Administrerende direktør",
+    "description": "Fører tilsyn med trygg mat, trygt drikkevann, friske dyr og planter, og dyrevelferd.",
+    "employees": "~1 300",
+    "location": "Oslo / Brumunddal",
+    "tags": [
+      "Matsikkerhet",
+      "Tilsyn"
+    ],
+    "url": "mattilsynet.no"
+  },
+  {
+    "name": "Direktoratet for strålevern og atomsikkerhet",
+    "abbrev": "DSA",
+    "ministry": "Helse- og omsorgsdepartementet",
+    "ministryKey": "hod",
+    "icon": "🏥",
+    "leader": "Per Strand",
+    "title": "Direktør",
+    "description": "Fagmyndighet for strålevern og atomsikkerhet. Fører tilsyn med all bruk av stråling i Norge og overvåker radioaktivitet i miljøet.",
+    "employees": "~120",
+    "location": "Oslo",
+    "tags": [
+      "Strålevern",
+      "Tilsyn",
+      "Atomsikkerhet"
+    ],
+    "url": "dsa.no"
+  },
+  {
+    "name": "Norsk pasientskadeerstatning",
+    "abbrev": "NPE",
+    "ministry": "Helse- og omsorgsdepartementet",
+    "ministryKey": "hod",
+    "icon": "🏥",
+    "leader": "Kristin Cordt-Hansen",
+    "title": "Direktør",
+    "description": "Behandler erstatningskrav fra pasienter som er påført skade etter feilbehandling i helsetjenesten.",
+    "employees": "~180",
+    "location": "Oslo",
+    "tags": [
+      "Helse",
+      "Erstatning"
+    ],
+    "url": "npe.no"
+  },
+  {
+    "name": "Direktoratet for e-helse",
+    "abbrev": "",
+    "ministry": "Helse- og omsorgsdepartementet",
+    "ministryKey": "hod",
+    "icon": "🏥",
+    "leader": "Sammenslått med Helsedirektoratet (1. jan 2024)",
+    "title": "Direktør",
+    "description": "Ansvar for nasjonal styring og koordinering av digitalisering i helse- og omsorgssektoren. Forvalter e-resept, kjernejournal og helsenorge.no.",
+    "employees": "~300",
+    "location": "Oslo",
+    "tags": [
+      "E-helse",
+      "Digitalisering",
+      "KI-relevant"
+    ],
+    "hot": true,
+    "url": "ehelse.no",
+    "kiReason": "Sentral rolle i digitalisering av helsesektoren med KI-relevante systemer som kjernejournal og helseanalyseplattformen. Utvikler rammeverk for bruk av KI i helsetjenesten.",
+    "kiSource": "ehelse.no"
+  },
+  {
+    "name": "Direktoratet for samfunnssikkerhet og beredskap",
+    "abbrev": "DSB",
+    "ministry": "Justis- og beredskapsdepartementet",
+    "ministryKey": "jd",
+    "icon": "⚖️",
+    "leader": "Lars Jacob Hiim",
+    "title": "Direktør",
+    "description": "Ansvar for brann- og el-sikkerhet, farlige stoffer og kritisk infrastruktur. Koordinerer nasjonal beredskap.",
+    "employees": "~700",
+    "location": "Tønsberg",
+    "tags": [
+      "Beredskap",
+      "Sikkerhet",
+      "Brann"
+    ],
+    "url": "dsb.no"
+  },
+  {
+    "name": "Politidirektoratet",
+    "abbrev": "POD",
+    "ministry": "Justis- og beredskapsdepartementet",
+    "ministryKey": "jd",
+    "icon": "⚖️",
+    "leader": "Håkon Skulstad",
+    "title": "Politidirektør",
+    "description": "Leder og samordner norsk politi. Ansvar for strategi, styring og utvikling av politietaten.",
+    "employees": "~17 500 (hele politiet)",
+    "location": "Oslo",
+    "tags": [
+      "Politi",
+      "Sikkerhet",
+      "Digitalisering",
+      "KI-relevant"
+    ],
+    "hot": true,
+    "url": "politiet.no",
+    "kiReason": "Kripos bruker KI-verktøy for digital etterforskning, ansiktsgjenkjenning og analyse av overgrepsmateriell (CSAM). Utforsker KI for analyse av store datasett, bilde-/videoanalyse og OSINT. EU AI Act setter spesifikke krav til politiets KI-bruk. Datatilsynets sandkasseprosjekt PrevBOT (KI-chatbot mot overgrep mot barn) utviklet ved Politihøgskolen.",
+    "kiSource": "politiet.no, datatilsynet.no"
+  },
+  {
+    "name": "Utlendingsdirektoratet",
+    "abbrev": "UDI",
+    "ministry": "Justis- og beredskapsdepartementet",
+    "ministryKey": "jd",
+    "icon": "⚖️",
+    "leader": "Snorre Sæther",
+    "title": "Direktør",
+    "description": "Behandler søknader om asyl, visum og oppholdstillatelse. Drifter asylmottak.",
+    "employees": "~1 200",
+    "location": "Oslo",
+    "tags": [
+      "Utlending",
+      "Asyl",
+      "Digitalisering"
+    ],
+    "url": "udi.no"
+  },
+  {
+    "name": "Kriminalomsorgsdirektoratet",
+    "abbrev": "KDI",
+    "ministry": "Justis- og beredskapsdepartementet",
+    "ministryKey": "jd",
+    "icon": "⚖️",
+    "leader": "Lise Sannerud",
+    "title": "Direktør",
+    "description": "Ansvar for straffegjennomføring i Norge – fengsler og friomsorgskontor.",
+    "employees": "~5 000 (hele kriminalomsorgen)",
+    "location": "Lillestrøm",
+    "tags": [
+      "Justis",
+      "Kriminalomsorg"
+    ],
+    "url": "kfrsfud.no"
+  },
+  {
+    "name": "Utlendingsnemnda",
+    "abbrev": "UNE",
+    "ministry": "Justis- og beredskapsdepartementet",
+    "ministryKey": "jd",
+    "icon": "⚖️",
+    "leader": "Marianne Jakobsen",
+    "title": "Direktør",
+    "description": "Klageinstans for utlendingssaker og statsborgersaker. Behandler klager på UDI-vedtak.",
+    "employees": "~350",
+    "location": "Oslo",
+    "tags": [
+      "Utlending",
+      "Klageorgan"
+    ],
+    "url": "une.no"
+  },
+  {
+    "name": "Sivil klareringsmyndighet",
+    "abbrev": "SKM",
+    "ministry": "Justis- og beredskapsdepartementet",
+    "ministryKey": "jd",
+    "icon": "⚖️",
+    "leader": "Gudmund Gjølstad",
+    "title": "Direktør",
+    "description": "Behandler søknader om sikkerhetsklarering for personell som skal ha tilgang til sikkerhetsgradert informasjon.",
+    "employees": "~50",
+    "location": "Moss",
+    "tags": [
+      "Sikkerhet",
+      "Klarering"
+    ],
+    "url": "sivil-klareringsmyndighet.no"
+  },
+  {
+    "name": "Statens sivilrettsforvaltning",
+    "abbrev": "SRF",
+    "ministry": "Justis- og beredskapsdepartementet",
+    "ministryKey": "jd",
+    "icon": "⚖️",
+    "leader": "Siv Hallgren",
+    "title": "Direktør",
+    "description": "Sentralmyndighet for vergemål, fri rettshjelp, erstatning etter straffeforfølging og tilskudd til rettshjelpsorganisasjoner.",
+    "employees": "~70",
+    "location": "Oslo",
+    "tags": [
+      "Justis",
+      "Vergemål",
+      "Rettshjelp"
+    ],
+    "url": "sivilrett.no"
+  },
+  {
+    "name": "Miljødirektoratet",
+    "abbrev": "",
+    "ministry": "Klima- og miljødepartementet",
+    "ministryKey": "kld",
+    "icon": "🌿",
+    "leader": "Hilde Singsaas",
+    "title": "Direktør",
+    "description": "Faglig rådgiver for klima- og miljøpolitikken. Forvalter naturmangfold, forurensning og klima.",
+    "employees": "~750",
+    "location": "Trondheim / Oslo",
+    "tags": [
+      "Miljø",
+      "Klima",
+      "Naturvern",
+      "KI-relevant"
+    ],
+    "hot": true,
+    "url": "miljodirektoratet.no",
+    "kiReason": "ML for fjernmåling og overvåking av arealbruksendringer, avskoging og naturkartlegging. Bildegjenkjenning for artsidentifisering (viltkameraer, folkeforskning). Datadrevne modeller for utslippsovervåking.",
+    "kiSource": "miljodirektoratet.no"
+  },
+  {
+    "name": "Norsk Polarinstitutt",
+    "abbrev": "NPI",
+    "ministry": "Klima- og miljødepartementet",
+    "ministryKey": "kld",
+    "icon": "🌿",
+    "leader": "Camilla Brekke",
+    "title": "Direktør",
+    "description": "Norges sentralinstitutt for forskning, kartlegging og miljøovervåking i Arktis og Antarktis.",
+    "employees": "~170",
+    "location": "Tromsø",
+    "tags": [
+      "Forskning",
+      "Polar",
+      "Klima"
+    ],
+    "url": "npolar.no"
+  },
+  {
+    "name": "Riksantikvaren",
+    "abbrev": "",
+    "ministry": "Klima- og miljødepartementet",
+    "ministryKey": "kld",
+    "icon": "🌿",
+    "leader": "Hanna Geiran",
+    "title": "Riksantikvar",
+    "description": "Direktorat for kulturminneforvaltning. Ansvar for å ivareta kulturminner og kulturmiljøer i Norge.",
+    "employees": "~170",
+    "location": "Oslo",
+    "tags": [
+      "Kulturminner",
+      "Forvaltning"
+    ],
+    "url": "riksantikvaren.no"
+  },
+  {
+    "name": "Husbanken",
+    "abbrev": "",
+    "ministry": "Kommunal- og distriktsdepartementet",
+    "ministryKey": "kmd",
+    "icon": "🏘️",
+    "leader": "Jan Hjelle",
+    "title": "Administrerende direktør",
+    "description": "Statens sentrale organ for gjennomføring av boligpolitikken. Gir lån, tilskudd og bostøtte.",
+    "employees": "~350",
+    "location": "Drammen / Hammerfest / Bodø",
+    "tags": [
+      "Bolig",
+      "Lån"
+    ],
+    "url": "husbanken.no"
+  },
+  {
+    "name": "Direktoratet for byggkvalitet",
+    "abbrev": "DiBK",
+    "ministry": "Kommunal- og distriktsdepartementet",
+    "ministryKey": "kmd",
+    "icon": "🏘️",
+    "leader": "Per-Arne Horne",
+    "title": "Direktør",
+    "description": "Sentral myndighet for bygningsregelverket. Sikrer gode bygg og et velfungerende bolig- og byggemarked.",
+    "employees": "~80",
+    "location": "Gjøvik",
+    "tags": [
+      "Bygg",
+      "Regelverk"
+    ],
+    "url": "dibk.no"
+  },
+  {
+    "name": "Kartverket",
+    "abbrev": "",
+    "ministry": "Kommunal- og distriktsdepartementet",
+    "ministryKey": "kmd",
+    "icon": "🏘️",
+    "leader": "Johnny Welle",
+    "title": "Kartverksjef",
+    "description": "Norges nasjonale kartmyndighet. Forvalter eiendomsdata, sjøkart, geodata og matrikkelen.",
+    "employees": "~850",
+    "location": "Hønefoss",
+    "tags": [
+      "Kart",
+      "Geodata",
+      "Digitalisering",
+      "KI-relevant"
+    ],
+    "hot": true,
+    "url": "kartverket.no",
+    "kiReason": "ML for automatisk featureekstraksjon fra satellitt- og flybilder, arealklassifisering og endringsdeteksjon. KI brukes til å automatisere kartproduksjon og forbedre datakvalitet i geodatasett.",
+    "kiSource": "kartverket.no"
+  },
+  {
+    "name": "Distriktssenteret",
+    "abbrev": "",
+    "ministry": "Kommunal- og distriktsdepartementet",
+    "ministryKey": "kmd",
+    "icon": "🏘️",
+    "leader": "Marit Lofnes Mellingen",
+    "title": "Direktør",
+    "description": "Kompetansesenter for distriktsutvikling. Formidler kunnskap og erfaringer som bidrar til attraktive lokalsamfunn.",
+    "employees": "~30",
+    "location": "Sogndal / Steinkjer / Alstadhaug",
+    "tags": [
+      "Distrikt",
+      "Utvikling"
+    ],
+    "url": "distriktssenteret.no"
+  },
+  {
+    "name": "Valgdirektoratet",
+    "abbrev": "",
+    "ministry": "Kommunal- og distriktsdepartementet",
+    "ministryKey": "kmd",
+    "icon": "🏘️",
+    "leader": "Siri Dolven",
+    "title": "Direktør",
+    "description": "Ansvar for gjennomføring av stortingsvalg, kommunestyre- og fylkestingsvalg. Drifter det elektroniske valgadministrasjonssystemet.",
+    "employees": "~60",
+    "location": "Oslo",
+    "tags": [
+      "Valg",
+      "Digitalisering"
+    ],
+    "url": "valgdirektoratet.no"
+  },
+  {
+    "name": "Kulturdirektoratet",
+    "abbrev": "",
+    "ministry": "Kultur- og likestillingsdepartementet",
+    "ministryKey": "kud",
+    "icon": "🎭",
+    "leader": "Øystein Strand",
+    "title": "Direktør",
+    "description": "Gjennomfører statlig kulturpolitikk gjennom tilskuddsordninger og faglig rådgivning.",
+    "employees": "~130",
+    "location": "Oslo",
+    "tags": [
+      "Kultur",
+      "Tilskudd"
+    ],
+    "url": "kulturdirektoratet.no"
+  },
+  {
+    "name": "Medietilsynet",
+    "abbrev": "",
+    "ministry": "Kultur- og likestillingsdepartementet",
+    "ministryKey": "kud",
+    "icon": "🎭",
+    "leader": "Mari Velsand",
+    "title": "Direktør",
+    "description": "Fører tilsyn med norske medier. Ansvar for mediemangfold, mediestøtte og trygg mediebruk.",
+    "employees": "~70",
+    "location": "Fredrikstad",
+    "tags": [
+      "Media",
+      "Tilsyn"
+    ],
+    "url": "medietilsynet.no"
+  },
+  {
+    "name": "Lotteri- og stiftelsestilsynet",
+    "abbrev": "",
+    "ministry": "Kultur- og likestillingsdepartementet",
+    "ministryKey": "kud",
+    "icon": "🎭",
+    "leader": "Atle Hamar",
+    "title": "Direktør",
+    "description": "Fører tilsyn med lotterier, pengespill og stiftelser. Jobber mot ulovlig pengespill.",
+    "employees": "~70",
+    "location": "Førde",
+    "tags": [
+      "Tilsyn",
+      "Pengespill"
+    ],
+    "url": "lottstift.no"
+  },
+  {
+    "name": "Nasjonalarkivet (tidl. Arkivverket)",
+    "abbrev": "",
+    "ministry": "Kultur- og likestillingsdepartementet",
+    "ministryKey": "kud",
+    "icon": "🎭",
+    "leader": "Inga Bolstad",
+    "title": "Nasjonalarkivar",
+    "description": "Norges nasjonale arkivmyndighet. Bevarer og tilgjengeliggjør arkiver av stor historisk og rettslig verdi.",
+    "employees": "~300",
+    "location": "Oslo / flere steder",
+    "tags": [
+      "Arkiv",
+      "Digitalisering",
+      "Kulturarv",
+      "KI-relevant"
+    ],
+    "hot": true,
+    "url": "arkivverket.no",
+    "kiReason": "KI for digitalisering og OCR/HTR (håndskriftgjenkjenning) av historiske dokumenter. Digitalarkivet bruker ML for å gjøre millioner av arkivposter søkbare. Utforsker KI-assistert klassifisering av digitalt skapt materiale.",
+    "kiSource": "arkivverket.no"
+  },
+  {
+    "name": "Kulturtanken",
+    "abbrev": "",
+    "ministry": "Kultur- og likestillingsdepartementet",
+    "ministryKey": "kud",
+    "icon": "🎭",
+    "leader": "Matias Hilmar Iversen",
+    "title": "Direktør",
+    "description": "Den kulturelle skolesekken. Sikrer at alle skoleelever får oppleve profesjonell kunst og kultur.",
+    "employees": "~30",
+    "location": "Oslo",
+    "tags": [
+      "Kultur",
+      "Skole"
+    ],
+    "url": "kulturtanken.no"
+  },
+  {
+    "name": "Kunst i offentlige rom",
+    "abbrev": "KORO",
+    "ministry": "Kultur- og likestillingsdepartementet",
+    "ministryKey": "kud",
+    "icon": "🎭",
+    "leader": "Karianne Kampevold Sætre",
+    "title": "Direktør",
+    "description": "Produserer og forvalter kunst i offentlige bygg og uterom. Norges ledende fagorganisasjon for kunst i offentlige rom.",
+    "employees": "~25",
+    "location": "Oslo",
+    "tags": [
+      "Kunst",
+      "Forvaltning"
+    ],
+    "url": "koro.no"
+  },
+  {
+    "name": "Norsk filminstitutt",
+    "abbrev": "NFI",
+    "ministry": "Kultur- og likestillingsdepartementet",
+    "ministryKey": "kud",
+    "icon": "🎭",
+    "leader": "Kjersti Mo",
+    "title": "Direktør",
+    "description": "Statens forvaltningsorgan for film, serier og dataspill. Forvalter tilskuddsordninger og fremmer norsk audiovisuell bransje.",
+    "employees": "~100",
+    "location": "Oslo",
+    "tags": [
+      "Film",
+      "Dataspill",
+      "Tilskudd"
+    ],
+    "url": "nfi.no"
+  },
+  {
+    "name": "Norsk kulturråd",
+    "abbrev": "",
+    "ministry": "Kultur- og likestillingsdepartementet",
+    "ministryKey": "kud",
+    "icon": "🎭",
+    "leader": "Kristian Seltun (rådsleder) – sekretariat ivaretatt av Kulturdirektoratet",
+    "title": "Rådsleder",
+    "description": "Gir tilskudd til kunst og kultur over hele landet. Forvalter Norsk kulturfond og Statens kunstnerstipend.",
+    "employees": "~130",
+    "location": "Oslo",
+    "tags": [
+      "Kultur",
+      "Tilskudd"
+    ],
+    "url": "kulturradet.no"
+  },
+  {
+    "name": "Språkrådet",
+    "abbrev": "",
+    "ministry": "Kultur- og likestillingsdepartementet",
+    "ministryKey": "kud",
+    "icon": "🎭",
+    "leader": "Nina Teigland (konst.)",
+    "title": "Direktør",
+    "description": "Statens fagorgan i språkspørsmål. Arbeider for å styrke norsk språk og språkmangfold, inkl. nynorsk, samisk og norsk tegnspråk.",
+    "employees": "~40",
+    "location": "Oslo",
+    "tags": [
+      "Språk",
+      "Forvaltning"
+    ],
+    "url": "sprakradet.no"
+  },
+  {
+    "name": "Direktoratet for høyere utdanning og kompetanse",
+    "abbrev": "HK-dir",
+    "ministry": "Kunnskapsdepartementet",
+    "ministryKey": "kd",
+    "icon": "🎓",
+    "leader": "Sveinung Skule",
+    "title": "Direktør",
+    "description": "Fagdirektorat for høyere utdanning, fagskoleutdanning og kompetansepolitikk. Forvalter Lånekassen.",
+    "employees": "~450",
+    "location": "Bergen / Oslo",
+    "tags": [
+      "Utdanning",
+      "Kompetanse"
+    ],
+    "url": "hkdir.no"
+  },
+  {
+    "name": "Utdanningsdirektoratet",
+    "abbrev": "Udir",
+    "ministry": "Kunnskapsdepartementet",
+    "ministryKey": "kd",
+    "icon": "🎓",
+    "leader": "Morten Rosenkvist",
+    "title": "Direktør",
+    "description": "Fagdirektorat for barnehage og grunnopplæring. Forvalter læreplaner, nasjonale prøver og tilskudd.",
+    "employees": "~400",
+    "location": "Oslo / Molde / Tromsø",
+    "tags": [
+      "Skole",
+      "Barnehage",
+      "Digitalisering"
+    ],
+    "url": "udir.no"
+  },
+  {
+    "name": "Sikt – Kunnskapssektorens tjenesteleverandør",
+    "abbrev": "Sikt",
+    "ministry": "Kunnskapsdepartementet",
+    "ministryKey": "kd",
+    "icon": "🎓",
+    "leader": "Terje Mørland",
+    "title": "Direktør",
+    "description": "Leverer IKT-tjenester til universiteter, høgskoler og forskningsinstitutter. Drifter Feide, data- og tjenesteplattformer for forskning og utdanning.",
+    "employees": "~400",
+    "location": "Trondheim / Bergen / Oslo",
+    "tags": [
+      "IKT",
+      "Forskning",
+      "Digitalisering"
+    ],
+    "url": "sikt.no"
+  },
+  {
+    "name": "Statens lånekasse for utdanning",
+    "abbrev": "Lånekassen",
+    "ministry": "Kunnskapsdepartementet",
+    "ministryKey": "kd",
+    "icon": "🎓",
+    "leader": "Kjetil Moen",
+    "title": "Direktør",
+    "description": "Gir stipend og lån til elever og studenter. En av de mest digitaliserte etatene i offentlig sektor.",
+    "employees": "~350",
+    "location": "Oslo",
+    "tags": [
+      "Utdanning",
+      "Lån",
+      "Digitalisering"
+    ],
+    "url": "lanekassen.no"
+  },
+  {
+    "name": "Nasjonalt organ for kvalitet i utdanningen",
+    "abbrev": "NOKUT",
+    "ministry": "Kunnskapsdepartementet",
+    "ministryKey": "kd",
+    "icon": "🎓",
+    "leader": "Kristin Vinje",
+    "title": "Direktør",
+    "description": "Kvalitetssikrer og fører tilsyn med høyere utdanning og fagskoleutdanning. Godkjenner utenlandsk utdanning.",
+    "employees": "~150",
+    "location": "Oslo",
+    "tags": [
+      "Utdanning",
+      "Kvalitet",
+      "Tilsyn"
+    ],
+    "url": "nokut.no"
+  },
+  {
+    "name": "Statped",
+    "abbrev": "",
+    "ministry": "Kunnskapsdepartementet",
+    "ministryKey": "kd",
+    "icon": "🎓",
+    "leader": "Annemarie Bechmann Hansen",
+    "title": "Direktør",
+    "description": "Statlig spesialpedagogisk tjeneste. Gir spesialpedagogiske tjenester til kommuner og fylkeskommuner for barn og voksne med særskilte opplæringsbehov.",
+    "employees": "~700",
+    "location": "Oslo / flere steder",
+    "tags": [
+      "Spesialpedagogikk",
+      "Utdanning"
+    ],
+    "url": "statped.no"
+  },
+  {
+    "name": "Landbruksdirektoratet",
+    "abbrev": "",
+    "ministry": "Landbruks- og matdepartementet",
+    "ministryKey": "lmd",
+    "icon": "🌾",
+    "leader": "Eli Reistad",
+    "title": "Direktør",
+    "description": "Gjennomfører landbrukspolitikken. Forvalter tilskuddsordninger, markedsregulering og eiendomspolitikk i landbruket.",
+    "employees": "~230",
+    "location": "Oslo / Alta",
+    "tags": [
+      "Landbruk",
+      "Tilskudd"
+    ],
+    "url": "landbruksdirektoratet.no"
+  },
+  {
+    "name": "Fiskeridirektoratet",
+    "abbrev": "",
+    "ministry": "Nærings- og fiskeridepartementet",
+    "ministryKey": "nfd",
+    "icon": "🐟",
+    "leader": "Frank Bakke-Jensen",
+    "title": "Fiskeridirektør",
+    "description": "Rådgiver for fiskeri- og havbrukspolitikk. Forvalter marine ressurser og kontrollerer fiskeriene.",
+    "employees": "~450",
+    "location": "Bergen",
+    "tags": [
+      "Fiskeri",
+      "Havbruk"
+    ],
+    "url": "fiskeridir.no"
+  },
+  {
+    "name": "Brønnøysundregistrene",
+    "abbrev": "BR",
+    "ministry": "Nærings- og fiskeridepartementet",
+    "ministryKey": "nfd",
+    "icon": "🐟",
+    "leader": "Inger-Lise Strøm",
+    "title": "Direktør",
+    "description": "Forvalter en rekke nasjonale register, bl.a. Enhetsregisteret og Foretaksregisteret. Viktig for digitalisering.",
+    "employees": "~600",
+    "location": "Brønnøysund",
+    "tags": [
+      "Register",
+      "Digitalisering",
+      "KI-relevant"
+    ],
+    "hot": true,
+    "url": "brreg.no",
+    "kiReason": "Altinn 3 (neste generasjon, skybasert og open source) legger til rette for KI-drevne smartskjemaer og automatisert validering. ML brukes for datakvalitet og avdekking av mistenkelige selskapsregistreringer. NADOBE muliggjør automatisert datadeling mellom etater – grunnlag for «kun-én-gang»-prinsippet med KI.",
+    "kiSource": "brreg.no, altinn.no"
+  },
+  {
+    "name": "Sjøfartsdirektoratet",
+    "abbrev": "Sdir",
+    "ministry": "Nærings- og fiskeridepartementet",
+    "ministryKey": "nfd",
+    "icon": "🐟",
+    "leader": "Alf Tore Sørheim",
+    "title": "Sjøfartsdirektør",
+    "description": "Fører tilsyn med sikkerhet på norske skip og andre flyttbare innretninger til sjøs.",
+    "employees": "~340",
+    "location": "Haugesund",
+    "tags": [
+      "Sjøfart",
+      "Sikkerhet",
+      "Tilsyn"
+    ],
+    "url": "sdir.no"
+  },
+  {
+    "name": "Patentstyret",
+    "abbrev": "",
+    "ministry": "Nærings- og fiskeridepartementet",
+    "ministryKey": "nfd",
+    "icon": "🐟",
+    "leader": "Kathrine Myhre",
+    "title": "Direktør",
+    "description": "Behandler søknader om patent, varemerke og design. Norges immaterialrettsmyndighet.",
+    "employees": "~250",
+    "location": "Oslo",
+    "tags": [
+      "Patent",
+      "Innovasjon"
+    ],
+    "url": "patentstyret.no"
+  },
+  {
+    "name": "Direktoratet for mineralforvaltning med Bergmesteren for Svalbard",
+    "abbrev": "DMF",
+    "ministry": "Nærings- og fiskeridepartementet",
+    "ministryKey": "nfd",
+    "icon": "🐟",
+    "leader": "Bjarte Rambjør Heide",
+    "title": "Direktør",
+    "description": "Forvalter mineralressurser og fører tilsyn med bergverksdrift i Norge og på Svalbard.",
+    "employees": "~45",
+    "location": "Trondheim",
+    "tags": [
+      "Mineral",
+      "Tilsyn"
+    ],
+    "url": "dirmin.no"
+  },
+  {
+    "name": "Justervesenet",
+    "abbrev": "",
+    "ministry": "Nærings- og fiskeridepartementet",
+    "ministryKey": "nfd",
+    "icon": "🐟",
+    "leader": "Geir A. Samuelsen",
+    "title": "Direktør",
+    "description": "Norges nasjonale metrologiinstitutt. Sikrer riktige målinger gjennom kalibrering, tilsyn og regelverk.",
+    "employees": "~100",
+    "location": "Kjeller",
+    "tags": [
+      "Metrologi",
+      "Tilsyn"
+    ],
+    "url": "justervesenet.no"
+  },
+  {
+    "name": "Konkurransetilsynet",
+    "abbrev": "",
+    "ministry": "Nærings- og fiskeridepartementet",
+    "ministryKey": "nfd",
+    "icon": "🐟",
+    "leader": "Mads Magnussen",
+    "title": "Direktør",
+    "description": "Håndhever konkurranseloven. Fører tilsyn med fusjoner, oppkjøp og karteller for å sikre effektiv konkurranse.",
+    "employees": "~120",
+    "location": "Bergen",
+    "tags": [
+      "Konkurranse",
+      "Tilsyn"
+    ],
+    "url": "konkurransetilsynet.no"
+  },
+  {
+    "name": "Norsk akkreditering",
+    "abbrev": "NA",
+    "ministry": "Nærings- og fiskeridepartementet",
+    "ministryKey": "nfd",
+    "icon": "🐟",
+    "leader": "Inger Cecilie Laake",
+    "title": "Direktør",
+    "description": "Akkrediterer laboratorier, inspeksjonsorganer og sertifiseringsorganer i Norge etter internasjonale standarder.",
+    "employees": "~50",
+    "location": "Lillestrøm",
+    "tags": [
+      "Akkreditering",
+      "Kvalitet"
+    ],
+    "url": "akkreditert.no"
+  },
+  {
+    "name": "Norsk nukleær dekommisjonering",
+    "abbrev": "NND",
+    "ministry": "Nærings- og fiskeridepartementet",
+    "ministryKey": "nfd",
+    "icon": "🐟",
+    "leader": "Pål Mikkelsen",
+    "title": "Direktør",
+    "description": "Ansvar for opprydding etter norsk atomenergiforskning, inkl. dekommisjonering av reaktorer og håndtering av radioaktivt avfall.",
+    "employees": "~90",
+    "location": "Halden",
+    "tags": [
+      "Atomenergi",
+      "Opprydding"
+    ],
+    "url": "nfrp.no"
+  },
+  {
+    "name": "Dagligvaretilsynet",
+    "abbrev": "",
+    "ministry": "Nærings- og fiskeridepartementet",
+    "ministryKey": "nfd",
+    "icon": "🐟",
+    "leader": "Tor Erik Engebretsen",
+    "title": "Direktør",
+    "description": "Fører tilsyn med handelspraksisloven i dagligvaremarkedet. Sikrer rettferdig konkurranse mellom dagligvareleverandører og -kjeder.",
+    "employees": "~15",
+    "location": "Oslo",
+    "tags": [
+      "Dagligvare",
+      "Tilsyn"
+    ],
+    "url": "dagligvaretilsynet.no"
+  },
+  {
+    "name": "Norges vassdrags- og energidirektorat",
+    "abbrev": "NVE",
+    "ministry": "Energidepartementet",
+    "ministryKey": "oed",
+    "icon": "⚡",
+    "leader": "Kjetil Lund",
+    "title": "Direktør",
+    "description": "Forvalter vann- og energiressurser. Ansvar for flom- og skredvarsling og regulering av kraftmarkedet.",
+    "employees": "~650",
+    "location": "Oslo",
+    "tags": [
+      "Energi",
+      "Vann",
+      "Beredskap"
+    ],
+    "url": "nve.no"
+  },
+  {
+    "name": "Sokkeldirektoratet",
+    "abbrev": "",
+    "ministry": "Energidepartementet",
+    "ministryKey": "oed",
+    "icon": "⚡",
+    "leader": "Torgeir Stordal",
+    "title": "Direktør",
+    "description": "Fagdirektorat for olje- og gassressurser på norsk sokkel. Tidligere Oljedirektoratet.",
+    "employees": "~220",
+    "location": "Stavanger",
+    "tags": [
+      "Petroleum",
+      "Ressurser"
+    ],
+    "url": "sodir.no"
+  },
+  {
+    "name": "Havindustritilsynet",
+    "abbrev": "",
+    "ministry": "Energidepartementet",
+    "ministryKey": "oed",
+    "icon": "⚡",
+    "leader": "Sigve Knudsen",
+    "title": "Direktør",
+    "description": "Ansvar for sikkerhet, arbeidsmiljø og beredskap i petroleumsvirksomhet og fornybar energi til havs. Tidligere Petroleumstilsynet.",
+    "employees": "~180",
+    "location": "Stavanger",
+    "tags": [
+      "Tilsyn",
+      "Petroleum",
+      "Sikkerhet",
+      "Havvind"
+    ],
+    "url": "havtil.no"
+  },
+  {
+    "name": "Jernbanedirektoratet",
+    "abbrev": "",
+    "ministry": "Samferdselsdepartementet",
+    "ministryKey": "sd",
+    "icon": "🚆",
+    "leader": "Anne Iren Fagerbakke",
+    "title": "Jernbanedirektør",
+    "description": "Koordinerer og utvikler jernbanesektoren. Ansvar for langsiktig planlegging og kjøp av persontransport på jernbane.",
+    "employees": "~400",
+    "location": "Oslo",
+    "tags": [
+      "Jernbane",
+      "Samferdsel"
+    ],
+    "url": "jernbanedirektoratet.no"
+  },
+  {
+    "name": "Statens vegvesen",
+    "abbrev": "SVV",
+    "ministry": "Samferdselsdepartementet",
+    "ministryKey": "sd",
+    "icon": "🚆",
+    "leader": "Ingrid Dahl Hovland",
+    "title": "Vegdirektør",
+    "description": "Planlegger, bygger og drifter riksveinettet. Har ansvar for trafikksikkerhet og førerkort.",
+    "employees": "~7 500",
+    "location": "Oslo / flere steder",
+    "tags": [
+      "Vei",
+      "Trafikk",
+      "Digitalisering",
+      "KI-relevant"
+    ],
+    "hot": true,
+    "url": "vegvesen.no",
+    "kiReason": "Piloter med autonome kjøretøy og regulatorisk rammeverk. KI/ML for trafikkflyt, vegvedlikehold og tilstandsovervåking. Digital tvilling og bildegjenkjenning for inspeksjon av broer og tunneler.",
+    "kiSource": "vegvesen.no"
+  },
+  {
+    "name": "Luftfartstilsynet",
+    "abbrev": "",
+    "ministry": "Samferdselsdepartementet",
+    "ministryKey": "sd",
+    "icon": "🚆",
+    "leader": "Lars Kobberstad",
+    "title": "Luftfartsdirektør",
+    "description": "Fører tilsyn med sivil luftfart i Norge. Sikrer et høyt sikkerhetsnivå i norsk luftfart.",
+    "employees": "~200",
+    "location": "Bodø",
+    "tags": [
+      "Luftfart",
+      "Tilsyn",
+      "Sikkerhet"
+    ],
+    "url": "luftfartstilsynet.no"
+  },
+  {
+    "name": "Kystverket",
+    "abbrev": "",
+    "ministry": "Samferdselsdepartementet",
+    "ministryKey": "sd",
+    "icon": "🚆",
+    "leader": "Einar Vik Arset",
+    "title": "Kystdirektør",
+    "description": "Ansvar for sjøsikkerhet, navigasjonsinfrastruktur, beredskap mot akutt forurensning og havneforvaltning.",
+    "employees": "~1 000",
+    "location": "Ålesund",
+    "tags": [
+      "Sjøfart",
+      "Beredskap",
+      "Infrastruktur"
+    ],
+    "url": "kystverket.no"
+  },
+  {
+    "name": "Statens jernbanetilsyn",
+    "abbrev": "SJT",
+    "ministry": "Samferdselsdepartementet",
+    "ministryKey": "sd",
+    "icon": "🚆",
+    "leader": "Erik Ø. Reiersøl-Johnsen",
+    "title": "Direktør",
+    "description": "Tilsynsmyndighet for jernbane, trikk, T-bane og taubaner. Sikrer trygg transport på skinner.",
+    "employees": "~60",
+    "location": "Oslo",
+    "tags": [
+      "Jernbane",
+      "Tilsyn"
+    ],
+    "url": "sjt.no"
+  },
+  {
+    "name": "Statens havarikommisjon",
+    "abbrev": "SHK",
+    "ministry": "Samferdselsdepartementet",
+    "ministryKey": "sd",
+    "icon": "🚆",
+    "leader": "Ingvild K. Ytrehus (fung.)",
+    "title": "Direktør",
+    "description": "Undersøker ulykker og hendelser innen luftfart, jernbane, sjøfart, veitrafikk og forsvar for å forbedre sikkerheten.",
+    "employees": "~70",
+    "location": "Lillestrøm",
+    "tags": [
+      "Havari",
+      "Sikkerhet",
+      "Undersøkelse"
+    ],
+    "url": "havarikommisjonen.no"
+  },
+  {
+    "name": "Vegtilsynet",
+    "abbrev": "",
+    "ministry": "Samferdselsdepartementet",
+    "ministryKey": "sd",
+    "icon": "🚆",
+    "leader": "Vegard Hansen",
+    "title": "Direktør",
+    "description": "Fører tilsyn med at Statens vegvesen og Nye Veier følger krav til sikkerhet og kvalitet ved bygging og vedlikehold av vei.",
+    "employees": "~20",
+    "location": "Voss",
+    "tags": [
+      "Vei",
+      "Tilsyn",
+      "Sikkerhet"
+    ],
+    "url": "vegtilsynet.no"
+  },
+  {
+    "name": "Norad",
+    "abbrev": "Norad",
+    "ministry": "Utenriksdepartementet",
+    "ministryKey": "ud",
+    "icon": "🌍",
+    "leader": "Gunn Jorid Roset",
+    "title": "Direktør",
+    "description": "Direktoratet for utviklingssamarbeid. Gir faglige råd og forvalter tilskudd for bistand og utviklingspolitikk.",
+    "employees": "~300",
+    "location": "Oslo",
+    "tags": [
+      "Bistand",
+      "Utvikling"
+    ],
+    "url": "norad.no"
+  },
+  {
+    "name": "Direktoratet for eksportkontroll og sanksjoner",
+    "abbrev": "Deksa",
+    "ministry": "Utenriksdepartementet",
+    "ministryKey": "ud",
+    "icon": "🌍",
+    "leader": "Annette Tjaberg",
+    "title": "Direktør",
+    "description": "Nyopprettet direktorat (2025) for eksportkontroll av strategiske varer og håndheving av internasjonale sanksjoner.",
+    "employees": "~30",
+    "location": "Oslo",
+    "tags": [
+      "Eksportkontroll",
+      "Sanksjoner"
+    ],
+    "url": "regjeringen.no"
+  }
+]

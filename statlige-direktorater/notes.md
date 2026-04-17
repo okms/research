@@ -121,16 +121,17 @@ Tilbakemelding om at mange av lederne i oversikten er utdaterte. Verifiser navn 
 - Arkivverket omdøpt til Nasjonalarkivet per 1. januar 2026 (navn og tittel oppdatert)
 - Direktoratet for e-helse: sammenslått med Helsedirektoratet per 1. jan 2024 (markert i leder-feltet)
 - Norsk kulturråd: ikke lenger eget direktorat med egen direktør – fungerer nå som rådsorgan under Kulturdirektoratet (rådsleder Kristian Seltun)
+- Etter ny kontroll samme dag ble **4 gjenstående feil** identifisert og rettet i `index.html`, slik at totalen ble **48 utdaterte lederfelt**.
 
 ### Oversikt over rettelser (gammel → ny)
 
 **Arbeids- og inkluderingsdepartementet**
-- NAV: Hans Christian Holte → Hege Nilssen (tiltrer 1. juni 2026; Eve Vangsnes Bergli fung.)
+- NAV: Hans Christian Holte → Eve Vangsnes Bergli (konst.; Hege Nilssen utnevnt 27. mars 2026, tiltredelse ikke avklart)
 - Arbeidstilsynet: Trude Vollheim → Ingvill Kvernmo (okt 2024)
 - Maritim pensjonskasse: tom → Åmund T. Lunde (org. omdøpt fra Pensjonstrygden for sjømenn 2023)
 
 **Barne- og familiedepartementet**
-- Bufdir: Kjetil Andreas Ostling → Hege Nilssen (til 1. juni 2026, deretter NAV)
+- Bufdir: Kjetil Andreas Ostling → Hege Nilssen
 - Forbrukertilsynet: Trond Rønningen → Bente Øverli (feb 2025)
 
 **Digitaliserings- og forvaltningsdepartementet / Finansdep.**
@@ -142,7 +143,7 @@ Tilbakemelding om at mange av lederne i oversikten er utdaterte. Verifiser navn 
 
 **Justis- og beredskapsdepartementet**
 - NSM: Sofie Nystrøm → Arne Christian Haugstøyl (mai 2024)
-- DSB: Elisabeth Aarsæther → Lars Jacob Hiim (feb 2026)
+- DSB: Elisabeth Aarsæther → Elisabeth Askim (konst. fra 14. april 2026; Lars Jacob Hiim utnevnt 27. feb 2026)
 - Politidirektoratet: Benedicte Bjørnland → Håkon Skulstad (2025)
 - UDI: Mari Trommald → Snorre Sæther (merk: Trommald var aldri UDI-direktør – original data feil)
 - Statens sivilrettsforvaltning: Sven Olav Rørvik → Siv Hallgren (sep 2022)
@@ -181,7 +182,7 @@ Tilbakemelding om at mange av lederne i oversikten er utdaterte. Verifiser navn 
 - Landbruksdirektoratet: Jørn Rolfsen → Eli Reistad (2024)
 
 **Nærings- og fiskeridepartementet**
-- Brønnøysundregistrene: Lars Peder Brekk → Inger-Lise Strøm (13. apr 2026)
+- Brønnøysundregistrene: Lars Peder Brekk → Lise Dahl Karlsen (konst.; Inger-Lise Strøm utnevnt 19. des 2025, men ikke reflektert som tiltrådt på etatens ledelsesside per 17. april 2026)
 - Sjøfartsdirektoratet: Knut Arild Hareide → Alf Tore Sørheim (apr 2025)
 - DMF: Randi Skirstad Grini → Bjarte Rambjør Heide (1. nov 2024)
 - Justervesenet: Kristine Bue Aasen → Geir A. Samuelsen
@@ -212,3 +213,4 @@ IMDi (Libe Rieber-Mohn), Digdir (Frode Danielsen), Datatilsynet (Line Coll), Nko
 - Direktoratet for e-helse eksisterer ikke lenger (ble slått sammen med Helsedirektoratet 1. jan 2024). Bør vurderes fjernet helt ved neste revisjon
 - Norsk kulturråd har ikke lenger egen direktør – er nå et rådsorgan under Kulturdirektoratet. Bør vurderes fjernet eller flagget eksplisitt
 - Kilder: regjeringen.no gir best datering av formelle utnevnelser; etatens egen "ledelse"-side er raskest for fungerende/konstituerte
+- Formelle utnevnelser og faktisk tiltredelse kan avvike i flere uker. For feltet `leader` bør publisert nåværende leder på etatens egen ledelses-/kontaktside veie tyngst når tiltredelsesdato ikke er bekreftet.
