@@ -6,3 +6,4 @@
 - 2026-04-17: Startet lokal rodney-sesjon og åpner index.html via file:// for funksjonell verifisering.
 - 2026-04-17: Verifisert med Rodney at `getComputedStyle(document.querySelector('header')).position` returnerer `static`.
 - 2026-04-17: Verifisert med Rodney-scroll at headerens topp-posisjon går fra `0` til `-600` når siden scrolles til `window.scrollY = 600`, som bekrefter at toppmenyen ikke er sticky.
+- 2026-04-17: Klargjorde commit med endringen i index.html samt README, notes og lagret diff i arbeidsmappen.
